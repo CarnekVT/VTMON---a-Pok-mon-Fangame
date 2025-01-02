@@ -1,0 +1,5 @@
+Name       = Menu combate Horizontal
+Version    = 1.0.1
+Essentials = 21.1
+Requires   = [DBK] Enhanced Battle UI,2.0
+Credits    = Maryn @cosmic_pipo/@PkmnRadiante(en TW/X),Luka s.j(POR EL GRAFICO DE LOS BOTONES)

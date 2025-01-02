@@ -1,0 +1,85 @@
+﻿#-------------------------------
+[FUTUREECHO]
+Name = Eco Futuro
+Type = PSYCHIC
+Category = Special
+Power = 60
+Accuracy = 100
+TotalPP = 5
+Target = NearOther
+FunctionCode = RaiseUserMainStats1
+Flags = CanProtect,CanMirrorMove,Sound
+EffectChance = 10
+Description = Eco del futuro que puede subir todas las características.
+#-------------------------------
+[DATAOVERCHARGE]
+Name = Carga Binaria
+Type = NORMAL
+Category = Physical
+Power = 120
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = RecoilThirdOfDamageDealtBinught
+Flags = Contact,CanProtect,CanMirrorMove
+Description = Ataque binario que hiere al agresor. Si es Binught Error, aumenta su Velocidad.
+#-------------------------------
+[ANOMALOUSSTRIKE]
+Name = Golpe Anómalo
+Type = NORMAL
+Category = Physical
+Power = 40
+Accuracy = 100
+TotalPP = 20
+Target = NearOther
+FunctionCode = GlitchTarget
+Flags = Contact,CanProtect,CanMirrorMove
+EffectChance = 10
+Description = Ataque anómalo que puede llegar a corromper.
+#-------------------------------
+[REBOOT]
+Name = Reinicio
+Type = NORMAL
+Category = Status
+Accuracy = 0
+TotalPP = 30
+Target = UserSide
+FunctionCode = RebootUser
+Description = Reinicia su sistema para eliminar estados infligidos y cambios de características.
+#-------------------------------
+[POLARDANCE]
+Name = Danza Polar
+Type = ICE
+Category = Special
+Power = 80
+Accuracy = 100
+TotalPP = 10
+Target = NearOther
+FunctionCode = RaiseUserSpAtk1
+Flags = CanProtect,CanMirrorMove,Dance
+EffectChance = 50
+Description = El Pokémon golpea envuelto en nieve. Puede aumentar el Ataque Especial de quien lo usa.
+#-------------------------------
+[SPIKYGRASP]
+Name = Zarpa Espinosa
+Type = GRASS
+Category = Physical
+Power = 80
+Accuracy = 100
+TotalPP = 15
+Target = NearOther
+FunctionCode = HitsTargetInSkyGroundsTarget
+Flags = CanProtect,CanMirrorMove
+Description = Una zarpa espinosa golpea al objetivo, obligándolo a descender. Hace Supereficaz al tipo Volador.
+#-------------------------------
+[CORRUPTEDAURA]
+Name = Aura Corrupta
+Type = NORMAL
+Category = Status
+Accuracy = 85
+TotalPP = 15
+Target = NearOther
+FunctionCode = GlitchTarget
+Flags = CanProtect,CanMirrorMove
+Description = Aura cibernética que corrompe al objetivo.
+#-------------------------------

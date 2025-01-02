@@ -1,0 +1,12 @@
+﻿Name       = Añadidos de Combate [VTMON]
+Version    = 1
+Essentials = 20,20.1,21,21.1
+Credits    = CarnekVT
+#====================================================================
+# Si robas algo de esto
+# ERES PUTO
+# y tambien te caerá la iglesia evangélica entera.
+# Además, te doy con el machete
+# y le diré a Night que te muerda la pata, y eso ya es algo fuerte
+# porque Night solo lame patas, no las muerde >:(
+#====================================================================

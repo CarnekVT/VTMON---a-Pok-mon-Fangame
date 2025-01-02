@@ -1,0 +1,44 @@
+﻿# Consulta la documentación en la wiki para aprender cómo editar este archivo.
+#-------------------------------
+[KEIRAME,Keirame]
+Items = POTION,POTION
+LoseText = ...
+Pokemon = POPPLIO,12
+    Form = 0
+    Moves = WATERGUN,ROUND,DISARMINGVOICE,ICYWIND
+    Ability = TORRENT
+    IV = 20,20,20,20,20,20
+Pokemon = MINCCINO,14
+    Name = Hichulla
+    Moves = ROUND,DRAININGKISS,TAILWHIP,DOUBLEKICK
+    AbilityIndex = 0
+    Item = SITRUSBERRY
+    Gender = male
+    IV = 20,20,20,20,20,20
+    Ball = LOVEBALL
+#-------------------------------
+[KREX,Krex]
+Items = POTION,POTION
+LoseText = ...
+Pokemon = SHROODLE,12
+    Form = 0
+    Moves = SCRATCH,BITE,ACIDSPRAY,COPYCAT
+    Ability = PRANKSTER
+    IV = 20,20,20,20,20,20
+Pokemon = VULPIX,14
+    Name = Kreti
+    Moves = EMBER,BITE,SCRATCH,COPYCAT
+    AbilityIndex = 0
+    Item = SITRUSBERRY
+    Gender = male
+    IV = 20,20,20,20,20,20
+    Ball = LOVEBALL
+#-------------------------------
+[HIKER,Jaime]
+LoseText = ...
+Pokemon = ROGGENROLA,3
+#-------------------------------
+[YOUNGSTER,Chavo]
+LoseText = ...
+Pokemon = MINCCINO,2
+    Name = Hichulla

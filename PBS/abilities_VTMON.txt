@@ -1,0 +1,13 @@
+﻿#-------------------------------
+[CORRUPTOR]
+Name = Corruptor
+Description = Puede corromper al objetivo con atacarlo un 30% de las veces.
+#-------------------------------
+[VIRALGROWTH]
+Name = Epidemia Viral
+Description = Al debilitar a un objetivo, aumenta su Ataque. Si también ejecuta un Mov. Supereficaz, recupera unos PS.
+#-------------------------------
+[POLARSTRATUS]
+Name = Estrato Polar
+Description = Potencia los movimientos de tipo Agua y Hielo durante las nevadas en un 30%.
+#-------------------------------
