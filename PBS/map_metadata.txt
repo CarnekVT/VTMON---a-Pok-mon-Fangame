@@ -250,6 +250,7 @@ ShowArea = true
 Weather = Snow,100
 SnapEdges = true
 BattleBack = Snow
+Environment = Snow
 #-------------------------------
 [049]   # Cueva de Roca P1
 Name = Cueva de Roca P1
