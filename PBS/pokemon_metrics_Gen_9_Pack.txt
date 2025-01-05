@@ -267,9 +267,10 @@ ShadowSprite = 1,-3,9
 AnimationSpeed = 3
 #-------------------------------
 [PAWMI]
-BackSprite = 4,26
-FrontSprite = 5,2
-ShadowSprite = 0,-4,11
+BackSprite = 2,35
+FrontSprite = 2,27
+ShadowSprite = 6,-4,-7
+AnimationSpeed = 3
 SuperShinyHue = 225
 #-------------------------------
 [PAWMO]

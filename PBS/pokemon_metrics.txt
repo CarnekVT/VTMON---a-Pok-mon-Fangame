@@ -4681,14 +4681,12 @@ ShadowSprite = 1,-19,-9
 [SNOM]
 BackSprite = 1,13
 FrontSprite = 2,35
-ShadowSprite = 1,-2,-13
-AnimationSpeed = 3,2
+ShadowSprite = 6,-2,-16
 #-------------------------------
 [FROSMOTH]
 BackSprite = 14,20
 FrontSprite = 7,-1
 ShadowSprite = 0,17,23
-AnimationSpeed = 3,2
 #-------------------------------
 [STONJOURNER]
 BackSprite = 4,22
