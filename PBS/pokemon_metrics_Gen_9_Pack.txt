@@ -270,6 +270,7 @@ AnimationSpeed = 3
 BackSprite = 2,35
 FrontSprite = 2,27
 ShadowSprite = 6,-4,-7
+AnimationSpeed = 1
 SuperShinyHue = 225
 #-------------------------------
 [PAWMO]
