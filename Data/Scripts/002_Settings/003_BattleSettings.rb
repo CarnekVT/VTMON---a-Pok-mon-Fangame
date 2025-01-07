@@ -11,7 +11,7 @@ module Settings
     # Si es true, los Pokémon extranjeros pueden desobedecer los comandos del
     # jugador si el Pokémon tiene un nivel demasiado alto en comparación con 
     # las Medallas de Gimnasio obtenidas.
-    FOREIGN_HIGH_LEVEL_POKEMON_CAN_DISOBEY      = true
+    FOREIGN_HIGH_LEVEL_POKEMON_CAN_DISOBEY      = false
     # Determina si la categoría física/especial de un movimiento depende del 
     # movimiento mismo (true) o de su tipo (false).
     MOVE_CATEGORY_PER_MOVE                      = (MECHANICS_GENERATION >= 4)

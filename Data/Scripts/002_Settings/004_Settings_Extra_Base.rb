@@ -217,7 +217,7 @@ BACKSPRITE_SCALE  = 1 #3
 # pantalla de Datos.
 ################################################################################
 
-MOSTRAR_PASOS_HUEVO = false
+MOSTRAR_PASOS_HUEVO = true
 
 
 

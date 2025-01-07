@@ -550,7 +550,7 @@ module Settings
   # Cuando está en true efectos que normalmente congelan generaran 
   # la congelacion de Hisui
   #-----------------------------------------------------------------------------
-  FREEZE_EFFECTS_CAUSE_FROSTBITE = false
+  FREEZE_EFFECTS_CAUSE_FROSTBITE = true
   
   
   ENABLE_SKIP_TEXT = false
