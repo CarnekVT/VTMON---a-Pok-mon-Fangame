@@ -12,7 +12,7 @@ class Battle::Scene::PokemonDataBox < Sprite
   FEMALE_BORDER_COLOR     = NAME_BORDER_COLOR
   def initializeDataBoxGraphic(sideSize)
     onPlayerSide = @battler.index.even?
-    if $game_switches[65]   # Check if switch 65 is ON
+    if $game_switches[70]   # Check if switch 65 is ON
       bgFilename = [_INTL("Graphics/UI/Battle/databox_special"),
                     _INTL("Graphics/UI/Battle/databox_special_foe")][@battler.index % 2]
       @databoxBitmap&.dispose
@@ -80,7 +80,7 @@ class Battle::Scene::PokemonDataBox < Sprite
   def initializeOtherGraphics(viewport)
     @numbersBitmap = AnimatedBitmap.new("Graphics/UI/Battle/icon_numbers")
     
-    if @battler.index.odd? && $game_switches[65]
+    if @battler.index.odd? && $game_switches[70]
       @hpBarBitmap = AnimatedBitmap.new("Graphics/UI/Battle/overlay_hp_special")
     else
       @hpBarBitmap = AnimatedBitmap.new("Graphics/UI/Battle/overlay_hp")
@@ -119,7 +119,7 @@ class Battle::Scene::PokemonDataBox < Sprite
   
 def x=(value)
   super
-  if @battler.index.odd? && $game_switches[65]
+  if @battler.index.odd? && $game_switches[70]
     @hpBar.x = value + (@databoxBitmap.width - @hpBarBitmap.width) / 2
   else
     @hpBar.x = value + @spriteBaseX + 102
@@ -259,7 +259,7 @@ end
 def draw_status
   return if @battler.status == :NONE
   
-  if @battler.index.odd? && $game_switches[65]
+  if @battler.index.odd? && $game_switches[70]
     icon_x_offset = +264
   else
     icon_x_offset = 0
@@ -311,7 +311,7 @@ end
 def draw_owned_icon
   return if !@battler.owned? || !@battler.opposes?(0)
   x_position = @spriteBaseX + 8
-  if $game_switches[65]  # Comprobar si el interruptor 65 está activo
+  if $game_switches[70]  # Comprobar si el interruptor 65 está activo
     x_position -= 128
   end
   pbDrawImagePositions(self.bitmap, [["Graphics/UI/Battle/icon_own", x_position, 36]])
@@ -453,7 +453,7 @@ if PluginManager.installed?("Type Icons in Battle")
       @numbersBitmap = AnimatedBitmap.new("Graphics/UI/Battle/icon_numbers")
      
       # Determine which HP bar overlay to use based on the switch state
-      if @battler.index.odd? && $game_switches[65]   # Check if switch 65 is ON for odd-indexed battlers (enemies)
+      if @battler.index.odd? && $game_switches[70]   # Check if switch 65 is ON for odd-indexed battlers (enemies)
         @hpBarBitmap = AnimatedBitmap.new("Graphics/UI/Battle/overlay_hp_special")
       else
         @hpBarBitmap = AnimatedBitmap.new("Graphics/UI/Battle/overlay_hp")
@@ -513,7 +513,7 @@ if PluginManager.installed?("Type Icons in Battle")
   
     def x=(value)
       super
-      if @battler.index.odd? && $game_switches[65]
+      if @battler.index.odd? && $game_switches[70]
         @hpBar.x = value + (@databoxBitmap.width - @hpBarBitmap.width) / 2
         @types_sprite.x = value + @types_x + 259
       else
@@ -530,7 +530,7 @@ if PluginManager.installed?("Type Icons in Battle")
       @hpBar.y     = value + 40
       @expBar.y    = value + 74
       @hpNumbers.y = value + 52
-      if @battler.index.odd? && $game_switches[65]
+      if @battler.index.odd? && $game_switches[70]
         @types_sprite.y = value + @types_y - 3
       else
         extra = (@battler.opposes?(0)) ? 5 : 0

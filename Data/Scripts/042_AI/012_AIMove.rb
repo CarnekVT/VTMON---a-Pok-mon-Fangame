@@ -169,8 +169,6 @@ class Battle::AI::AIMove
         if Effectiveness.super_effective_type?(calc_type, *target.pbTypes(true))
           multipliers[:final_damage_multiplier] *= 1.25
         end
-      when :NORMALIZE
-        multipliers[:power_multiplier] *= 1.2 if Settings::MECHANICS_GENERATION >= 7
       when :SNIPER
         multipliers[:final_damage_multiplier] *= 1.5 if is_critical
       when :STAKEOUT

@@ -1194,14 +1194,6 @@ Battle::AbilityEffects::ModifyMoveBaseType.add(:LIQUIDVOICE,
   }
 )
 
-Battle::AbilityEffects::ModifyMoveBaseType.add(:NORMALIZE,
-  proc { |ability, user, move, type|
-    next if !GameData::Type.exists?(:NORMAL)
-    move.powerBoost = true if Settings::MECHANICS_GENERATION >= 7
-    next :NORMAL
-  }
-)
-
 Battle::AbilityEffects::ModifyMoveBaseType.add(:PIXILATE,
   proc { |ability, user, move, type|
     next if type != :NORMAL || !GameData::Type.exists?(:FAIRY)
