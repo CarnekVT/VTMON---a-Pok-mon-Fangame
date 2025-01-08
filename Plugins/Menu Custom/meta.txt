@@ -1,4 +1,4 @@
-﻿Name       = Menu Parrilla
+﻿Name       = Menu VTMON
 Version    = 1.0
 Essentials = 21.1
-Credits    = Polectron,Maryn
+Credits    = Polectron,Maryn,CarnekVT

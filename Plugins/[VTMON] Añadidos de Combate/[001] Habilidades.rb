@@ -35,16 +35,34 @@ Battle::AbilityEffects::OnDealingHit.add(:CORRUPTOR,
 )
 
 # Epidemia Viral
-Battle::AbilityEffects::OnEndOfUsingMove.add(:VIRALGROWTH, # Arreglar
+Battle::AbilityEffects::OnEndOfUsingMove.add(:VIRALGROWTH,
   proc { |ability, user, targets, move, battle|
-    next if battle.pbAllFainted?(user.idxOpposingSide)
+    next if battle.pbAllFainted?(user.idxOpposingSide) # Si todos los oponentes ya están debilitados, no hace nada
+
     numFainted = 0
-    targets.each { |b| numFainted += 1 if b.damageState.fainted }
-    next if numFainted == 0 || !user.pbCanRaiseStatStage?(:ATTACK, user)
-    user.pbRaiseStatStageByAbility(:ATTACK, numFainted, user)
-    battler.pbRecoverHP(battler.totalhp / 4) if Effectiveness.super_effective?(target.damageState.typeMod)
+    superEffective = false
+
+    # Contar objetivos debilitados y verificar si hubo algún golpe súper efectivo
+    targets.each do |target|
+      numFainted += 1 if target.damageState.fainted
+      if Effectiveness.super_effective?(target.damageState.typeMod)
+        superEffective = true
+      end
+    end
+
+    # Aumentar el Ataque por cada enemigo debilitado
+    if numFainted > 0 && user.pbCanRaiseStatStage?(:ATTACK, user)
+      user.pbRaiseStatStageByAbility(:ATTACK, numFainted, user)
+    end
+
+    # Recuperar HP si hubo al menos un golpe súper efectivo
+    if superEffective
+      user.pbRecoverHP(user.totalhp / 4)
+      battle.pbDisplay(_INTL("{1} recovered some HP due to its Viral Growth!", user.pbThis))
+    end
   }
 )
+
 
 # Bala Cítrica
 Battle::AbilityEffects::OnDealingHit.add(:CITRUSBULLET,
