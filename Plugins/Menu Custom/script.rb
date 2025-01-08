@@ -34,8 +34,14 @@ class Menu2
 
     @optionsCmd = addCmd(["options", "Opciones", "openOptions", :selectable])
     @saveCmd = addCmd(["save", "Guardar", "openSave", :selectable])
+
+    if $game_switches[66] # Verificar si el switch para el Fly Activo
     @flyCmd = addCmd(["fly", "Pokérider", "openFlyScreen", :non_selectable])
+    end
+
+    if $game_switches[65] # Verificar si el switch para el Wild Activo
     @wildCmd = addCmd(["wild", "Salvaje", "pbWildEncounter", :non_selectable])
+    end
 
     @icon_width = 78
     @icon_height = 88
@@ -194,9 +200,9 @@ class Menu2
       elsif Input.trigger?(Input::DOWN)
         @selected_item += @n_icons
       elsif Input.trigger?(Input::AUX1) # Salvaje
-        pbWildEncounter
+        pbWildEncounter if $game_switches[65]
       elsif Input.trigger?(Input::AUX2) # Vuelo
-        openFlyScreen
+        openFlyScreen if $game_switches[66]
       elsif Input.trigger?(Input::ACTION) # Tarjeta de Entrenador
         openTrainerCard
       end
@@ -301,11 +307,9 @@ def pbWildEncounter
   screen.pbStartScreen
 end
 
-def openFlyScreen
-  if pokerider()  
-    pbFlyToNewLocation
-  else
-  end
+def openFlyScreen(bag = false)
+  pbShowMap(-1, false) if $game_temp.fly_destination.nil?
+  pbFlyToNewLocation
 end
 
 def openPC

@@ -384,7 +384,7 @@ Description = Aumenta la Velocidad en un 50% si sufre problemas de estado. En ca
 #-------------------------------
 [NORMALIZE]
 Name = Normalidad
-Description = Todos sus movs. son tipo Normal y aumentan su potencia en un 20%. No afecta a Pod. oculto, Metereobola, Don natural, Sentencia, Tecno shock y Multiat.
+Description = Convierte a todos los Pokémon en combate en tipo Normal menos al usuario.
 #-------------------------------
 [SNIPER]
 Name = Francotirador
