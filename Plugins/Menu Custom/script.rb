@@ -307,8 +307,11 @@ def pbWildEncounter
   screen.pbStartScreen
 end
 
-def openFlyScreen(bag = false)
-  pbShowMap(-1, false) if $game_temp.fly_destination.nil?
+def openFlyScreen
+  scene = PokemonRegionMap_Scene.new(-1, false)
+  screen = PokemonRegionMapScreen.new(scene)
+  ret = screen.pbStartFlyScreen
+  $game_temp.fly_destination = ret
   pbFlyToNewLocation
 end
 

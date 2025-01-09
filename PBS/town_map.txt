@@ -1,9 +1,9 @@
-﻿# See the documentation on the wiki to learn how to edit this file.
+﻿# Consulta la documentación en la wiki para aprender cómo editar este archivo.
 #-------------------------------
 [0]
 Name = Essen
 Filename = mapRegion0.png
-Point = 13,12,Pueblo Jazmín,Laboratorio Pokémon,48,15,15,
+Point = 13,12,Pueblo Jazmín,Laboratorio Pokémon,48,15,15
 #-------------------------------
 [1]
 Name = Tiall
