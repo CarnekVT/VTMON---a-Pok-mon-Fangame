@@ -106,6 +106,9 @@ end
 def pbStartMultipleQTEs(configs, require_all = false, success_sound = nil, fail_sound = "se_fail")
   return [] if configs.nil? || configs.empty? # Validar configuraciones vacías
 
+  # Reiniciar la variable 26 antes de iniciar los QTEs
+  $game_variables[26] = []  # Reiniciar para almacenar nuevos resultados
+
   viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
   viewport.z = 99999
   qtes = configs.map.with_index do |config, i|
@@ -135,6 +138,7 @@ def pbStartMultipleQTEs(configs, require_all = false, success_sound = nil, fail_
   results
 end
 
+
 # Evaluate QTE results with custom scenarios
 def pbEvaluateQTEResults(success_threshold, success_message, fail_message, retry_qte = false, qte_configs = nil, success_sound = nil, fail_sound = "se_fail")
   results = $game_variables[26] || [] # Asegurar que existan resultados
@@ -142,6 +146,9 @@ def pbEvaluateQTEResults(success_threshold, success_message, fail_message, retry
 
   success_count = results.count(:success)
   success_rate = (success_count.to_f / results.size) * 100
+
+  # Establecer el número de éxitos en la variable global
+  $game_variables[26] = success_count  # Almacena el número de éxitos
 
   if success_rate >= success_threshold
     pbMessage(success_message)
