@@ -1,5 +1,5 @@
 #===============================================================================
-# Minijuego de pesca con temporizador
+# Minijuego de pesca
 #===============================================================================
 class FishingMinigame
     attr_accessor :success
@@ -59,14 +59,6 @@ class FishingMinigame
         @marker_speed = 4 # Reducir la velocidad del marcador
         @timer = 400 # Aumentar el tiempo del temporizador
   
-        # Temporizador en la esquina superior derecha
-        @timer_text = TextSprite.new(@viewport)
-        # Usar la fuente seleccionada por el jugador en las opciones
-        @timer_text.font = Font.new(Options::FONT, 20)
-        @timer_text.x = Graphics.width - 80 # Posición en la esquina superior derecha
-        @timer_text.y = 20
-        @timer_text.z = 99999  # Asegurarse de que esté encima de otros elementos
-  
         fade_in # Desvanecimiento inicial
         pbSEPlay("PC Access")
       rescue => e
@@ -84,7 +76,6 @@ class FishingMinigame
       handle_input
       check_marker_in_zone
       update_progress_bar
-      update_timer_display
   
       # Movimiento de la zona verde de forma dinámica
       move_zone_green
@@ -122,13 +113,6 @@ class FishingMinigame
       @progress_fill.zoom_x = @progress
     end
   
-    def update_timer_display
-      # Mostrar el tiempo restante en el temporizador en el formato mm:ss
-      minutes = @timer / 60
-      seconds = @timer % 60
-      @timer_text.text = sprintf("%02d:%02d", minutes, seconds)
-    end
-  
     def win_minigame
       @success = true
       pbSEPlay("Safari Zone end")
@@ -157,7 +141,7 @@ class FishingMinigame
   
     def dispose
       return if disposed?
-      [@background, @bar, @zone_green, @marker, @progress_bar, @progress_fill, @success_icon, @fail_icon, @timer_text].each do |sprite|
+      [@background, @bar, @zone_green, @marker, @progress_bar, @progress_fill, @success_icon, @fail_icon].each do |sprite|
         sprite.dispose if sprite && !sprite.disposed?  # Asegurarse de que no sea nil y no haya sido dispuesto
       end
     end
