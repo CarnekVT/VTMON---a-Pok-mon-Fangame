@@ -48,3 +48,31 @@ def pbFlyToNewLocation(pkmn = nil, move = :FLY)
     end
     return true
   end
+
+# Nueva Caña
+ItemHandlers::UseInField.add(:SUPERROD, proc { |item| 
+  # Comprobación de si el jugador está en un área donde puede pescar
+  notCliff = $game_map.passable?($game_player.x, $game_player.y, $game_player.direction, $game_player)
+  
+  # Comprobar si el terreno donde el jugador está no permite pescar
+  if !$game_player.pbFacingTerrainTag.can_fish || (!$PokemonGlobal.surfing && !notCliff)
+    pbMessage(_INTL("Aquí no se puede usar."))
+    next false
+  end
+
+  # Iniciar el minijuego de pesca
+  # Usamos pbPescaMinigame para activar el minijuego de pesca
+  success = pbPescaMinigame  # Aquí se ejecuta el minijuego de pesca
+  
+  if success
+    # Si el minijuego tiene éxito, simplemente muestra un mensaje de éxito
+    # Aquí puedes incluir otras acciones adicionales si lo deseas
+  else
+    # Si falla la pesca, muestra un mensaje de fracaso
+    pbMessage(_INTL("Parece que no hubo tanta suerte..."))
+  end
+  
+  # Después de la pesca (exitosa o no), se regresa a la acción normal
+  next true
+})
+
