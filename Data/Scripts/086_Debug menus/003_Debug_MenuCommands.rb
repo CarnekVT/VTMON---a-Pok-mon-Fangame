@@ -653,7 +653,7 @@ MenuHandlers.add(:debug_menu, :clear_boxes, {
 
 def darEquipoDePrueba()
   party = []
-    species = [:PIKACHU, :PIDGEOTTO, :KADABRA, :GYARADOS, :DIGLETT, :CHANSEY]
+    species = [:PAWMOT, :CORVIKNIGHT, :GIGALITH, :GYARADOS, :BINUGHT, :OINKOLOGNE]
     species.each { |id| party.push(id) if GameData::Species.exists?(id) }
     $player.party.clear
     # Generate Pokémon of each species at level 20
@@ -663,21 +663,21 @@ def darEquipoDePrueba()
       $player.pokedex.register(pkmn)
       $player.pokedex.set_owned(spec)
       case spec
-      when :PIDGEOTTO
+      when :CORVIKNIGHT
         pkmn.learn_move(:FLY)
-      when :KADABRA
+      when :GIGALITH
         pkmn.learn_move(:FLASH)
         pkmn.learn_move(:TELEPORT)
       when :GYARADOS
         pkmn.learn_move(:SURF)
         pkmn.learn_move(:DIVE)
         pkmn.learn_move(:WATERFALL)
-      when :DIGLETT
+      when :BINUGHT
         pkmn.learn_move(:DIG)
         pkmn.learn_move(:CUT)
         pkmn.learn_move(:HEADBUTT)
         pkmn.learn_move(:ROCKSMASH)
-      when :CHANSEY
+      when :OINKOLOGNE
         pkmn.learn_move(:SOFTBOILED)
         pkmn.learn_move(:STRENGTH)
         pkmn.learn_move(:SWEETSCENT)

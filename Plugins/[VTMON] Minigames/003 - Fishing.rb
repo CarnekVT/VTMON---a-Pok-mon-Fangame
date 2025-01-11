@@ -196,6 +196,7 @@ class PescaMinigame
       # Crear la animación de exclamación
       spriteset = $scene.spriteset
       spriteset.addUserAnimation(003, $game_player.x, $game_player.y, true)
+      pbFishingEnd
   
       # Esperar que termine la animación
       pbWait(1) # Ajusta el tiempo de espera según lo necesites
@@ -252,6 +253,8 @@ class PescaMinigame
   
   # Llamada al minijuego (fuera de la clase)
   def pbPescaMinigame
+    pbFishingBegin
+    pbWait(0.5)
     viewport = Viewport.new(0, 0, Graphics.width, Graphics.height)
     viewport.z = 99999
     minigame = PescaMinigame.new(viewport)

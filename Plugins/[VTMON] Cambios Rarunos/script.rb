@@ -68,7 +68,8 @@ ItemHandlers::UseInField.add(:SUPERROD, proc { |item|
     # Si el minijuego tiene éxito, simplemente muestra un mensaje de éxito
     # Aquí puedes incluir otras acciones adicionales si lo deseas
   else
-    # Si falla la pesca, muestra un mensaje de fracaso
+    pbFishingEnd
+    pbWait(0.5)
     pbMessage(_INTL("Parece que no hubo tanta suerte..."))
   end
   
