@@ -3,7 +3,7 @@
 [001]   # Intro
 Name = Intro
 #-------------------------------
-[002]
+[002]   # MAP002
 Name = Pueblo Inicio
 Outdoor = true
 ShowArea = true
@@ -415,3 +415,9 @@ Name = Región Tiall
 Outdoor = true
 MapPosition = 1,13,16
 BattleBack = city
+#-------------------------------
+[076]   # Gruta Nevaluz
+ShowArea = true
+SnapEdges = true
+BattleBack = CaveJamin
+Environment = Cave
