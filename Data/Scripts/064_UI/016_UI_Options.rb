@@ -103,17 +103,19 @@ class PokemonSystem
 
 
     # Handle game restart after vsync value change
-    if Kernel.pbConfirmMessageSerious("Cambiar el valor del vsync requiere reiniciar el juego.\nSe te ofrecerá la opción de guardar antes del reinicio.\n¿Deseas reiniciar ahora?")
-      if $player && pbConfirmMessage("¿Quieres guardar antes de salir?")
-        pbSaveScreen
+    message = $player ? _INTL("Cambiar el valor del vsync requiere reiniciar el juego.\nPodrás guardar antes de reiniciar.\n¿Deseas reiniciar ahora?") : _INTL("Cambiar el valor del vsync requiere reiniciar el juego.\n¿Deseas reiniciar ahora?")
+    if Kernel.pbConfirmMessageSerious(message)
+      pbSaveScreen if $player
+      if System.is_really_windows?
+        # Launch Game.exe and immediately exit the current process
+        Thread.new do
+          system('start "" "Game.exe"')
+        end
+        sleep(0.1) # Give the thread some time to execute
+      else
+        pbMessage("Al no estar en Windows el juego no puede reiniciarse automáticamente.\nSe cerrará y deberás abrirlo manualmente")
       end
 
-      # Launch Game.exe and immediately exit the current process
-      Thread.new do
-        system('start "" "Game.exe"')
-      end
-
-      sleep(0.1) # Give the thread some time to execute
       Kernel.exit!
     end
   end
@@ -634,9 +636,9 @@ MenuHandlers.add(:options_menu, :vsync, {
   "name"        => _INTL("VSync"),
   "order"       => 130,
   "type"        => EnumOption,
-  "parameters"  => [_INTL("Activado"), _INTL("Desactivado")],
+  "parameters"  => [_INTL("Sí"), _INTL("No")],
   "condition"   => proc { next !$joiplay },
-  "description" => _INTL("Si el juego va muy rápido desactiva el VSync.\nRequiere reiniciar el juego, se te ofrecerá guardar antes de reiniciar."),
+  "description" => _INTL("Si el juego va muy rápido desactiva el VSync.\nRequiere reiniciar el juego"),
   "get_proc"    => proc { next $PokemonSystem.vsync },
   "set_proc"    => proc { |value, _scene|
     next if $PokemonSystem.vsync == value
@@ -649,7 +651,7 @@ MenuHandlers.add(:options_menu, :autotile_animations, {
   "name"        => _INTL("Animaciones de mapas"),
   "order"       => 140,
   "type"        => EnumOption,
-  "parameters"  => [_INTL("Activadas"), _INTL("Desactivadas")],
+  "parameters"  => [_INTL("Sí"), _INTL("No")],
   "description" => _INTL("Activa o desactiva las animaciones de los mapas."),
   "get_proc"    => proc { next $PokemonSystem.autotile_animations || 0 },
   "set_proc"    => proc { |value, _scene| 
