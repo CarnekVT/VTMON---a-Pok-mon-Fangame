@@ -20,6 +20,7 @@ class Game_System
   attr_accessor :autoscroll_x_speed
   attr_accessor :autoscroll_y_speed
   attr_accessor :bgm_position
+  attr_accessor :sevolume
 
   def initialize
     @map_interpreter    = Interpreter.new(0, true)
@@ -37,6 +38,7 @@ class Game_System
     @autoscroll_y_speed = 0
     @bgm_position       = 0
     @bgs_position       = 0
+    @sevolume = 100
   end
 
   #-----------------------------------------------------------------------------
@@ -237,12 +239,15 @@ class Game_System
   def se_play(se)
     se = RPG::AudioFile.new(se) if se.is_a?(String)
     if se && se.name != "" && FileTest.audio_exist?("Audio/SE/" + se.name)
+      # Asegura que $PokemonSystem no sea nil
+      $PokemonSystem = Game_System.new if $PokemonSystem.nil?
       vol = se.volume
-      vol *= $PokemonSystem.sevolume / 100.0
+      vol *= $PokemonSystem.sevolume / 100.0 if $PokemonSystem.sevolume
       vol = vol.to_i
       Audio.se_play("Audio/SE/" + se.name, vol, se.pitch)
     end
   end
+  
 
   def se_stop
     Audio.se_stop
