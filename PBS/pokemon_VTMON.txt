@@ -309,3 +309,30 @@ Category = Guardián Espinoso
 Pokedex = Tras cuidar exhaustivamente los huertos, Morturne ahora puede rivalizar contra los Pokémon tipo Volador que asechan los sembradios. Morturne nunca deja escapar a sus presas.
 Generation = 11
 WildItemUncommon = STICKYBARB
+#-------------------------------
+[DRUCAYRA]
+Name = Drucayra
+Types = FAIRY,DARK
+BaseStats = 52,65,50,38,45,50
+GenderRatio = Female50Percent
+GrowthRate = Slow
+BaseExp = 60
+EVs = ATTACK,1
+CatchRate = 45
+Happiness = 35
+Abilities = DANCER,SHEERFORCE
+HiddenAbilities = RUNAWAY
+Moves = 1,TACKLE,1,FOCUSENERGY,4,DRAGONBREATH,8,BITE,12,ROAR,16,ASSURANCE,20,HEADBUTT,24,WORKUP,28,SLAM,32,CRUNCH,36,SCARYFACE,40,DRAGONPULSE,44,BODYSLAM,48,HYPERVOICE,52,DRAGONRUSH,56,NASTYPLOT,60,OUTRAGE
+TutorMoves = AQUATAIL,ASSURANCE,ATTRACT,BODYSLAM,CAPTIVATE,CONFIDE,CRUNCH,DARKPULSE,DOUBLETEAM,DRACOMETEOR,DRAGONPULSE,DRAGONTAIL,EARTHPOWER,ENDURE,FACADE,FIREFANG,FOCUSENERGY,FRUSTRATION,HIDDENPOWER,HYPERVOICE,ICEFANG,INCINERATE,MIMIC,NASTYPLOT,NATURALGIFT,OUTRAGE,PROTECT,PSYCHUP,RAINDANCE,REST,RETURN,ROAR,ROCKSMASH,ROUND,SCARYFACE,SCREECH,SECRETPOWER,SHOCKWAVE,SLEEPTALK,SNORE,SPITE,STRENGTH,SUBSTITUTE,SUNNYDAY,SUPERPOWER,SWAGGER,TAUNT,THIEF,THUNDERFANG,THUNDERWAVE,TORMENT,TOXIC,UPROAR,WORKUP,ZENHEADBUTT
+EggMoves = ASTONISH,BELCH,DOUBLEHIT,HEADSMASH
+EggGroups = Dragon
+HatchSteps = 10240
+Height = 0.8
+Weight = 17.3
+Color = Blue
+Shape = Quadruped
+Category = Tosco
+Pokedex = No ve, por eso va haciendo placajes y dando mordiscos a diestro y siniestro. Su cuerpo está plagado de heridas.
+Generation = 5
+Evolutions = DRUDDIGON,Level,30
+#-------------------------------
