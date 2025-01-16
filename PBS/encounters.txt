@@ -5,8 +5,8 @@ Land,21
     20,BULBASAUR,5
 #-------------------------------
 [004] #  Wild Ow
-OverworldCave,50
-    100,CHARMANDER,5
+Cave,10
+    20,CHARMANDER,5
 #-------------------------------
 [048] # Pueblo Jazmín
 LandMorning,10
@@ -45,10 +45,10 @@ SuperRod
     10,SHELLDER,2,3
 #-------------------------------
 [076] # Gruta Nevaluz
-OverworldCave,10
+Cave,10
     20,CUBCHOO,2,3
     20,ROGGENROLA,2,3
-    20,ZUBAT,2,3
+    20,WOOBAT,2,3
     10,DRUCAYRA,2,3
     10,NYMBLE,2,3
     10,SWINUB,2,3
