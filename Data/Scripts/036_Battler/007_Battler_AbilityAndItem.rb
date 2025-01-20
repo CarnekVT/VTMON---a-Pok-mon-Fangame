@@ -75,19 +75,19 @@ class Battle::Battler
     plateType = pbGetJudgmentType(@legendPlateType)
     @legendPlateType = plateType
     
-    if hasActiveAbility?(:TRACE) && hasActiveItem?(:ABILITYSHIELD)
+    if hasActiveAbility?(:TRACE) && hasActiveItem?(:ABILITYSHIELD) || hasActiveAbility?(:CURIOUSINSTINCT) && hasActiveItem?(:ABILITYSHIELD)
       @battle.pbShowAbilitySplash(self)
       @battle.pbDisplay(_INTL("¡La habilidad de {1} está protegida por el efecto de su Escudo Habilidad!", pbThis(true)))
       @battle.pbHideAbilitySplash(self)
     # Trace
-    elsif hasActiveAbility?(:TRACE)
+    elsif hasActiveAbility?(:TRACE) || hasActiveAbility?(:CURIOUSINSTINCT)
       # NOTE: In Gen 5 only, Trace only triggers upon the Trace bearer switching
       #       in and not at any later times, even if a traceable ability turns
       #       up later. Essentials ignores this, and allows Trace to trigger
       #       whenever it can even in Gen 5 battle mechanics.
       choices = @battle.allOtherSideBattlers(@index).select do |b|
         next !b.ungainableAbility? &&
-             ![:POWEROFALCHEMY, :RECEIVER, :TRACE].include?(b.ability_id)
+             ![:POWEROFALCHEMY, :RECEIVER, :TRACE, :CURIOUSINSTINCT].include?(b.ability_id)
       end
       if choices.length > 0
         choice = choices[@battle.pbRandom(choices.length)]

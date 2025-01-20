@@ -290,7 +290,7 @@ module VisibleEncounterSettings
   # variable is a variable or an method that does not need any parameters of the class Pokemon,
   # value is a possible value of variable and number is the number of steps an pokemon goes more (or less) than default before vanishing on the map 
   # if it satisfies pokemon.variable == value
-  ALLOWED_MAP_IDS = [76,4]
+  ALLOWED_MAP_IDS = [76,5]
   # Este Valor define en que mapas habrán encuentros por Overworld en vez de encuentros Normales. Se define por el ID del mapa.
   # Ejm.: Pueblo Inicial Map ID: 001, colocas ALLOWED_MAP_IDS = [1] , con eso podrás tener salvajes por Overworld en el Pueblo Inicial.
   

@@ -12,7 +12,7 @@ class ::Numeric
   #  Delta offset for frame rates
   #-----------------------------------------------------------------------------
   def delta(type = :add, round = true)
-    d = Graphics.frame_rate/40.0
+    d = Graphics.frame_rate/60.0
     a = round ? (self*d).to_i : (self*d)
     s = round ? (self/d).floor : (self/d)
     return type == :add ? a : s

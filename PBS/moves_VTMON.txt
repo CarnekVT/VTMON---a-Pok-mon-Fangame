@@ -1,16 +1,5 @@
 ﻿#-------------------------------
-[FUTUREECHO]
-Name = Eco Futuro
-Type = PSYCHIC
-Category = Special
-Power = 60
-Accuracy = 100
-TotalPP = 5
-Target = NearOther
-FunctionCode = RaiseUserMainStats1
-Flags = CanProtect,CanMirrorMove,Sound
-EffectChance = 10
-Description = Eco del futuro que puede subir todas las características.
+# Byght's Line Moves
 #-------------------------------
 [DATAOVERCHARGE]
 Name = Carga Binaria
@@ -22,6 +11,7 @@ TotalPP = 15
 Target = NearOther
 FunctionCode = RecoilThirdOfDamageDealtBinught
 Flags = Contact,CanProtect,CanMirrorMove
+EffectChance = 100
 Description = Ataque binario que hiere al agresor. Si es Binught Error, aumenta su Velocidad.
 #-------------------------------
 [ANOMALOUSSTRIKE]
@@ -46,6 +36,21 @@ TotalPP = 30
 Target = UserSide
 FunctionCode = RebootUser
 Description = Reinicia su sistema para eliminar estados infligidos y cambios de características.
+#-------------------------------
+# Common Moves
+#-------------------------------
+[FUTUREECHO]
+Name = Eco Futuro
+Type = PSYCHIC
+Category = Special
+Power = 60
+Accuracy = 100
+TotalPP = 5
+Target = NearOther
+FunctionCode = RaiseUserMainStats1
+Flags = CanProtect,CanMirrorMove,Sound
+EffectChance = 10
+Description = Eco del futuro que puede subir todas las características.
 #-------------------------------
 [POLARDANCE]
 Name = Danza Polar
@@ -72,8 +77,8 @@ FunctionCode = HitsTargetInSkyGroundsTarget
 Flags = CanProtect,CanMirrorMove
 Description = Una zarpa espinosa golpea al objetivo, obligándolo a descender. Hace Supereficaz al tipo Volador.
 #-------------------------------
-[CORRUPTEDAURA]
-Name = Aura Corrupta
+[CORRUPTEDENERGY]
+Name = Energía Corrupta
 Type = NORMAL
 Category = Status
 Accuracy = 85
@@ -81,5 +86,5 @@ TotalPP = 15
 Target = NearOther
 FunctionCode = GlitchTarget
 Flags = CanProtect,CanMirrorMove
-Description = Aura cibernética que corrompe al objetivo.
+Description = Energía cibernética que corrompe al objetivo.
 #-------------------------------

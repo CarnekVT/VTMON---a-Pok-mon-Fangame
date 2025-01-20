@@ -1,0 +1,13 @@
+
+================================================================
+
+[Started battle] Single wild battle (1 trainer(s) vs. 1 wild Pokémon)
+"¡Un Wobbuffet salvaje te corta el paso!"
+"¡Adelante, Byght!"
+"Sigue nevando."
+[Round order] Byght (0), el Wobbuffet salvaje (1)
+[Ability triggered] Byght's Zona Corrupta
+"¡Un aura corrupta se propaga por toda la zona!"
+
+===== Round 1 =====
+

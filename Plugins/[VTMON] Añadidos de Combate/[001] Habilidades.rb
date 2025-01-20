@@ -134,5 +134,256 @@ Battle::AbilityEffects::OnSwitchIn.add(:NORMALIZE,
   }
 )
 
+# Habilidad: Parche
+Battle::AbilityEffects::EndOfRoundHealing.add(:PATCH,
+  proc { |ability, battler, battle|
+    if battler.status != :NONE
+      if battle.pbRandom(100) < 30
+        battle.pbShowAbilitySplash(battler)
+        oldStatus = battler.status
+        battler.pbCureStatus(Battle::Scene::USE_ABILITY_SPLASH)
+        if !Battle::Scene::USE_ABILITY_SPLASH
+          case oldStatus
+          when :SLEEP
+            battle.pbDisplay(_INTL("¡La habilidad {2} de {1} le despertó!", battler.pbThis, battler.abilityName))
+          when :POISON
+            battle.pbDisplay(_INTL("¡La habilidad {2} de {1} curó su envenenamiento!", battler.pbThis, battler.abilityName))
+          when :BURN
+            battle.pbDisplay(_INTL("¡La habilidad {2} de {1} curó su quemadura!", battler.pbThis, battler.abilityName))
+          when :PARALYSIS
+            battle.pbDisplay(_INTL("¡La habilidad {2} de {1} curó su parálisis!", battler.pbThis, battler.abilityName))
+          when :FROZEN, :FROSTBITE
+            battle.pbDisplay(_INTL("¡La habilidad {2} de {1} le descongeló!", battler.pbThis, battler.abilityName))
+          end
+        end
+        battle.pbHideAbilitySplash(battler)
+      end
+    elsif battle.pbRandom(100) < 30
+      battle.pbShowAbilitySplash(battler)
+      showAnim = true
+      [:DEFENSE, :SPECIAL_DEFENSE].each do |stat|
+        next if !battler.pbCanRaiseStatStage?(stat, nil, nil, true)
+        if battler.pbRaiseStatStage(stat, 1, battler, showAnim)
+          showAnim = false
+        end
+      end
+      battle.pbHideAbilitySplash(battler)
+    end
+  }
+)
 
+# Habilidad: Zona Corrupta
+Battle::AbilityEffects::OnSwitchIn.add(:BUGGEDAURA,
+  proc { |ability, battler, battle, switch_in|
+    battle.pbShowAbilitySplash(battler, true)
+    battle.pbDisplay(_INTL("¡Un aura corrupta se propaga por toda la zona!"))
+    battle.allBattlers.each do |b|
+      next if b.hasActiveItem?(:ABILITYSHIELD)
+      b.effects[PBEffects::GastroAcid] = true
+    end
+    battle.pbHideAbilitySplash(battler)
+  }
+)
 
+Battle::AbilityEffects::OnSwitchOut.add(:BUGGEDAURA,
+  proc { |ability, battler, battle|
+    battle.pbShowAbilitySplash(battler)
+    battle.pbDisplay(_INTL("¡Las habilidades de los Pokémon en el campo han sido restauradas!"))
+    battle.eachBattler { |b| b.effects[PBEffects::GastroAcid] = false }
+    battle.pbHideAbilitySplash(battler)
+  }
+)
+
+Battle::AbilityEffects::OnBattlerFainting.add(:BUGGEDAURA,
+  proc { |ability, battler, fainted, battle|
+    next if battler.index != fainted.index
+    battle.pbShowAbilitySplash(battler)
+    battle.pbDisplay(_INTL("¡Las habilidades de los Pokémon en el campo han sido restauradas!"))
+    battle.eachBattler { |b| b.effects[PBEffects::GastroAcid] = false }
+    battle.pbHideAbilitySplash(battler)
+  }
+)
+
+# Habilidad: Encriptado
+Battle::AbilityEffects::StatLossImmunityNonIgnorable.add(:ENCRYPTED,
+  proc { |ability, battler, stat, battle, show_messages|
+    if show_messages
+      battle.pbShowAbilitySplash(battler)
+      battle.pbDisplay(_INTL("¡{1} se protege de la reducción de estadísticas gracias a {2}!", 
+        battler.pbThis(true), battler.abilityName))
+      battle.pbHideAbilitySplash(battler)
+    end
+    next true
+  }
+)
+
+Battle::AbilityEffects::MoveBlocking.copy(:DAZZLING, :QUEENLYMAJESTY, :ENCRYPTED, :ARMORTAIL)
+
+# Habilidad: Antivirus
+Battle::AbilityEffects::DamageCalcFromTarget.add(:ANTIVIRUS,
+  proc { |ability, user, target, move, mults, power, type|
+    mults[:final_damage_multiplier] *= 0.9
+  }
+)
+
+Battle::AbilityEffects::OnBeingHit.add(:ANTIVIRUS,
+  proc { |ability, user, target, move, battle|
+    if Effectiveness.super_effective?(target.damageState.typeMod)
+      target.pbRaiseStatStageByAbility(:SPEED, 2, target)
+      battle.pbDisplay(_INTL("¡La velocidad de {1} aumentó gracias a {2}!", 
+        target.pbThis(true), target.abilityName))
+    end
+  }
+)
+
+# Habilidad: Inspiración Divina
+Battle::AbilityEffects::OnSwitchIn.add(:DIVINEINSPIRATION,
+  proc { |ability, battler, battle, switch_in|
+    # Mostrar animación global de la habilidad
+    battle.pbShowAbilitySplash(battler)
+    battle.pbDisplay(_INTL("¡Los aliados de {1} se inspiraron con su presencia!", battler.pbThis(true), battler.abilityName))
+
+    # Iterar sobre los aliados del mismo lado
+    battle.eachSameSideBattler(battler.index) do |ally|
+      next if ally == battler  # Saltar al usuario de la habilidad
+
+      # Variable para controlar si se muestra la animación
+      showAnim = true
+      [:SPECIAL_ATTACK, :SPECIAL_DEFENSE].each do |stat|
+        next if !ally.pbCanRaiseStatStage?(stat, nil, nil, true)
+        # Subir estadísticas con una sola animación
+        if ally.pbRaiseStatStage(stat, 1, battler, showAnim)
+          showAnim = false
+        end
+      end
+    end
+
+    # Ocultar animación global de la habilidad
+    battle.pbHideAbilitySplash(battler)
+  }
+)
+
+# Habilidad: Canto Milagroso
+Battle::AbilityEffects::OnDealingHit.add(:MIRACULOUSSONG, proc { |ability, user, target, move, battle|
+  # Verificar si el movimiento es de tipo Hada o tiene la propiedad 'soundMove'
+  if move.type == :FAIRY || move.soundMove?
+    ability_activated = false
+
+    # Verificar si el usuario puede curarse
+    if user.hp < user.totalhp
+      battle.pbShowAbilitySplash(user)
+      ability_activated = true
+      hp_recovery_user = (user.totalhp / 10).floor
+      user.pbRecoverHP(hp_recovery_user)
+      # Mensaje de recuperación del usuario
+      if Battle::Scene::USE_ABILITY_SPLASH
+        battle.pbDisplay(_INTL("¡Los PS de {1} han sido restaurados!", user.pbThis))
+      else
+        battle.pbDisplay(_INTL("¡{1} ha restaurado sus PS gracias a {2}!", user.pbThis, user.abilityName))
+      end
+    end
+
+    # Curar a los aliados (excluyendo al usuario)
+    battle.eachSameSideBattler(user.index) do |ally|
+      next if ally.fainted? || ally.index == user.index # Excluir al usuario
+
+      # Curar solo si el aliado tiene menos PS que su total
+      if ally.hp < ally.totalhp
+        battle.pbShowAbilitySplash(user) if !ability_activated
+        ability_activated = true
+        hp_recovery_ally = (ally.totalhp / 10).floor
+        ally.pbRecoverHP(hp_recovery_ally)
+        # Mostrar mensaje de recuperación para el aliado
+        if Battle::Scene::USE_ABILITY_SPLASH
+          battle.pbDisplay(_INTL("¡Los PS de {1} han sido restaurados!", ally.pbThis))
+        else
+          battle.pbDisplay(_INTL("¡{1} ha restaurado los PS de {2} gracias a {3}!", user.pbThis, ally.pbThis, user.abilityName))
+        end
+      end
+    end
+
+    # Ocultar la animación de la habilidad si se activó
+    battle.pbHideAbilitySplash(user) if ability_activated
+  end
+})
+
+# Habilidad: Gran Encore
+Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
+  proc { |ability, user, targets, move, battle|
+    PBDebug.log("[Great Encore] Iniciando efecto de la habilidad.")
+
+    # Asegurar que `@effects` esté inicializado
+    user.effects ||= []
+
+    # Prevenir activaciones múltiples para el mismo movimiento
+    if user.effects[PBEffects::GreatEncoreTriggered]
+      PBDebug.log("[Great Encore] La habilidad ya se activó para este movimiento.")
+      next
+    end
+
+    # Verificar si el movimiento es válido
+    unless move.is_a?(Battle::Move)
+      PBDebug.log("[Great Encore] Movimiento inválido. No es un objeto Battle::Move.")
+      next
+    end
+
+    # Probabilidad de activación 
+    if battle.pbRandom(100) >= 40 # Cambiar a 30 para comportamiento final
+      PBDebug.log("[Great Encore] La habilidad no se activó por probabilidad.")
+      next
+    end
+
+    # No se activa si el movimiento golpea más de una vez
+    if move.pbNumHits(user, targets) > 1
+      PBDebug.log("[Great Encore] Movimiento golpea múltiples veces. Habilidad no activada.")
+      next
+    end
+
+    # Verificar si algún objetivo fue afectado
+    targets = [targets] unless targets.is_a?(Array)
+    all_unaffected = targets.all? { |target| target.damageState.unaffected }
+    if all_unaffected
+      PBDebug.log("[Great Encore] Ningún objetivo fue afectado. Habilidad no activada.")
+      next
+    end
+
+    # Activar la habilidad
+    user.effects[PBEffects::GreatEncoreTriggered] = true
+    battle.pbShowAbilitySplash(user)
+
+    # Mostrar el mensaje del público
+    battle.pbDisplay(_INTL("¡El público aclama a {1} para realizar otro ataque más!", user.pbThis(true)))
+
+    # Ocultar el splash después del mensaje
+    battle.pbHideAbilitySplash(user)
+
+    # Ejecutar nuevamente el movimiento
+    new_move = user.moves.find { |m| m.id == move.id }
+    if new_move
+      PBDebug.log("[Great Encore] Forzando uso del movimiento #{new_move.id}.")
+      user.pbUseMoveSimple(new_move.id) # Usar movimiento directamente
+      PBDebug.log("[Great Encore] Movimiento ejecutado exitosamente.")
+    else
+      PBDebug.log("[Great Encore] No se pudo encontrar un movimiento válido para repetir.")
+    end
+
+    # Restablecer efecto para permitir futuras activaciones
+    user.effects[PBEffects::GreatEncoreTriggered] = false
+  }
+)
+
+module PBEffects
+  GreatEncoreTriggered = 1000 # Un número suficientemente alto para evitar conflictos
+end
+
+class Battle
+  alias great_encore_end_of_turn pbEndOfRoundPhase
+  def pbEndOfRoundPhase
+    # Reseteo de la habilidad Great Encore
+    eachBattler do |battler|
+      next unless battler.effects
+      battler.effects[PBEffects::GreatEncoreTriggered] = false
+    end
+    great_encore_end_of_turn # Llamar al método original
+  end
+end

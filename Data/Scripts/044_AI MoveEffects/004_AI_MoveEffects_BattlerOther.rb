@@ -1013,7 +1013,7 @@ Battle::AI::Handlers::MoveFailureAgainstTargetCheck.add("SetTargetAbilityToUserA
   proc { |move, user, target, ai, battle|
     next true if !user.ability || user.ability_id == target.ability_id
     next true if user.battler.ungainableAbility? ||
-                 [:POWEROFALCHEMY, :RECEIVER, :TRACE].include?(user.ability_id)
+                 [:POWEROFALCHEMY, :RECEIVER, :TRACE, :CURIOUSINSTINCT].include?(user.ability_id)
     next move.move.pbFailsAgainstTarget?(user.battler, target.battler, false)
   }
 )
@@ -2157,7 +2157,7 @@ Battle::AI::Handlers::MoveFailureAgainstTargetCheck.add("SetTargetAbilityToUserA
     next true if target.battler.hasActiveItem?(:ABILITYSHIELD)
     next true if !user.ability || user.ability_id == target.ability_id
     next true if user.battler.ungainableAbility? ||
-                 [:POWEROFALCHEMY, :RECEIVER, :TRACE].include?(user.ability_id)
+                 [:POWEROFALCHEMY, :RECEIVER, :TRACE, :CURIOUSINSTINCT].include?(user.ability_id)
     next move.move.pbFailsAgainstTarget?(user.battler, target.battler, false)
   }
 )

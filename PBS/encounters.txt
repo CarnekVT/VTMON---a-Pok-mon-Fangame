@@ -1,13 +1,5 @@
 ﻿# Consulta la documentación en la wiki para aprender cómo editar este archivo.
 #-------------------------------
-[003] # WWild Def
-Land,21
-    20,BULBASAUR,5
-#-------------------------------
-[004] #  Wild Ow
-Cave,10
-    20,CHARMANDER,5
-#-------------------------------
 [048] # Pueblo Jazmín
 LandMorning,10
     20,LECHONK,2,3
@@ -44,8 +36,19 @@ SuperRod
     30,SPHEAL,2,3
     10,SHELLDER,2,3
 #-------------------------------
-[076] # Gruta Nevaluz
-Cave,10
+[076] # Gruta Nevaluz P1
+Cave,5
+    20,CUBCHOO,2,3
+    20,ROGGENROLA,2,3
+    20,WOOBAT,2,3
+    10,DRUCAYRA,2,3
+    10,NYMBLE,2,3
+    10,SWINUB,2,3
+    5,FRIGIBAX,2,3
+    5,GREAVARD,2,3
+#-------------------------------
+[005] # Gruta Nevaluz PB
+Cave,5
     20,CUBCHOO,2,3
     20,ROGGENROLA,2,3
     20,WOOBAT,2,3

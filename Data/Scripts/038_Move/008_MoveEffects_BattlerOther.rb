@@ -1063,7 +1063,7 @@ class Battle::Move::SetUserAbilityToTargetAbility < Battle::Move
       return true
     end
     if target.ungainableAbility? ||
-       [:POWEROFALCHEMY, :RECEIVER, :TRACE, :WONDERGUARD].include?(target.ability_id)
+       [:POWEROFALCHEMY, :RECEIVER, :TRACE, :CURIOUSINSTINCT, :WONDERGUARD].include?(target.ability_id)
       @battle.pbDisplay(_INTL("¡Pero ha fallado!")) if show_message
       return true
     end
@@ -1095,7 +1095,7 @@ class Battle::Move::SetTargetAbilityToUserAbility < Battle::Move
       return true
     end
     if user.ungainableAbility? ||
-       [:POWEROFALCHEMY, :RECEIVER, :TRACE].include?(user.ability_id)
+       [:POWEROFALCHEMY, :RECEIVER, :TRACE, :CURIOUSINSTINCT].include?(user.ability_id)
       @battle.pbDisplay(_INTL("¡Pero ha fallado!"))
       return true
     end

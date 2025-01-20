@@ -1,4 +1,6 @@
 ﻿#-------------------------------
+# Byght's Line Abilities
+#-------------------------------
 [CORRUPTOR]
 Name = Corruptor
 Description = Puede corromper al objetivo con atacarlo un 30% de las veces.
@@ -7,7 +9,42 @@ Description = Puede corromper al objetivo con atacarlo un 30% de las veces.
 Name = Epidemia Viral
 Description = Al debilitar a un objetivo, aumenta su Ataque. Si también ejecuta un Mov. Supereficaz, recupera unos PS.
 #-------------------------------
+[PATCH]
+Name = Parche
+Description = El Pokémon tiene un 30% de recuperarse de un problema de estado. En caso de no padecer un problema de estado, subirá ambas defensas en un nivel.
+#-------------------------------
+[BUGGEDAURA]
+Name = Aura Corrupta
+Description = Propaga un aura corrupta que anula las habilidades de los Pokémon cercanos.
+#-------------------------------
+[ENCRYPTED]
+Name = Encriptado
+Description = El Pokémon se vuelve inmune a la reducción de estadísticas. Los movimientos de prioridad de los enemigos son bloqueados.
+#-------------------------------
+[ANTIVIRUS]
+Name = Antivirus
+Description = El Pokémon resiste en un 10% los ataques dirigidos a el. Si es atacado con un ataque supereficaz, su Velocidad sube dos niveles.
+#-------------------------------
+# Hichulla's Line Abilities
+#-------------------------------
+[DIVINEINSPIRATION]
+Name = Inspiración Divina
+Description = Al entrar en combate, motiva a sus aliados aumentando su Ataque Especial y Defensa Especial en un nivel.
+#-------------------------------
+[MIRACULOUSSONG]
+Name = Canto Milagroso
+Description = Al usar movimientos tipo Hada o basados en sonido, el usuario y su aliado recuperan un 10% de sus PS.
+#-------------------------------
+[CURIOUSINSTINCT]
+Name = Instinto Curioso
+Description = Al entrar en combate, copia la habilidad de uno de los rivales adyacentes al azar por la curiosidad de saber que hace.
+#-------------------------------
+[GREATENCORE]
+Name = Gran Encore
+Description = El Pokémon tiene un 40% de atacar dos veces a pedido del público.
+#-------------------------------
+# Common Abilities
+#-------------------------------
 [POLARSTRATUS]
 Name = Estrato Polar
 Description = Potencia los movimientos de tipo Agua y Hielo durante las nevadas en un 30%.
-#-------------------------------
