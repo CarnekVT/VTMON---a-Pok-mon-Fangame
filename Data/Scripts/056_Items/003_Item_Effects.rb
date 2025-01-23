@@ -1168,8 +1168,6 @@ ItemHandlers::UseOnPokemon.add(:SUPERCAPSULE, proc { |item, qty, pkmn, scene|
   if scene.pbConfirm(_INTL("¿Quieres cambiar la Habilidad de {1}?", pkmn.name))
     oldabil=pkmn.ability_index
     abils = pkmn.getAbilityList
-    ability_commands = []
-    abil_cmd = 0
     for i in abils
       ability_commands.push(GameData::Ability.get(i[0]).name + ((i[1] < 2) ? "" : " (H)"))
     end

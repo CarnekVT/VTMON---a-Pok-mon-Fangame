@@ -33,7 +33,7 @@ module Settings
   #-----------------------------------------------------------------------------
   # Cuando es true, los sprites se restringirán en las interfaces de Resumen/Almacenamiento/Pokédex.
   #-----------------------------------------------------------------------------
-  CONSTRICT_POKEMON_SPRITES = true
+  CONSTRICT_POKEMON_SPRITES = false
   
   #-----------------------------------------------------------------------------
   # Métricas de coordenadas Y para los sprites traseros y frontales de la muñeca de Sustituto, respectivamente.

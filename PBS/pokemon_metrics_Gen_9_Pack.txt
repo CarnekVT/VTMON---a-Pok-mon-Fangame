@@ -473,9 +473,8 @@ AnimationSpeed = 2,3
 #-------------------------------
 [TINKATINK]
 BackSprite = 2,11
-FrontSprite = 10,30
+FrontSprite = 0,30
 ShadowSprite = 2,-1,-9
-AnimationSpeed = 2,3
 #-------------------------------
 [TINKATUFF]
 BackSprite = -1,12

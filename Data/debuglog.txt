@@ -11,3 +11,751 @@
 
 ===== Round 1 =====
 
+
+================================================================
+
+[Started battle] Single wild battle (1 trainer(s) vs. 1 wild Pokémon)
+"¡Un Wobbuffet salvaje te corta el paso!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+===== Round 1 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Amnesia
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Ida y Vuelta
+"¡Keiridol ha usado Ida y Vuelta!"
+[HP change] El Wobbuffet salvaje lost 98 HP (238 -> 140)
+"¡Es supereficaz!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+"¡Keiridol volvió con Nuevo!"
+"¡Adelante, Gyarados!"
+[Ability triggered] Gyarados's Intimidación
+[Stat change] El Wobbuffet salvaje's Ataque changed by -1 (0 -> -1)
+"¡Ataque de el Wobbuffet salvaje ha disminuido!"
+[Use move] El Wobbuffet salvaje (1) used Amnesia
+"¡El Wobbuffet salvaje ha usado Amnesia!"
+[Stat change] El Wobbuffet salvaje's Defensa Especial changed by +2 (0 -> 2)
+"¡Defensa Especial de el Wobbuffet salvaje ha aumentado mucho!"
+
+[End of round 1]
+"Sigue nevando."
+
+===== Round 2 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Gyarados (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Gyarados (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Encanto (target 0)
+
+[Round order] El Wobbuffet salvaje (1), Gyarados (0)
+
+"¡Gyarados, cambia! ¡Regresa!"
+"¡Adelante, Keiridol!"
+[Use move] El Wobbuffet salvaje (1) used Encanto
+"¡El Wobbuffet salvaje ha usado Encanto!"
+[Stat change] Keiridol's Ataque changed by -2 (0 -> -2)
+"¡Ataque de Keiridol ha disminuido mucho!"
+
+[End of round 2]
+"Sigue nevando."
+
+===== Round 3 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Otra Vez (target 0)
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Ida y Vuelta
+"¡Keiridol ha usado Ida y Vuelta!"
+[HP change] El Wobbuffet salvaje lost 46 HP (140 -> 94)
+"¡Es supereficaz!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+"¡Keiridol volvió con Nuevo!"
+"¡Solo un poco más! ¡Aguanta, Gigalith!"
+[Use move] El Wobbuffet salvaje (1) used Otra Vez
+"¡El Wobbuffet salvaje ha usado Otra Vez!"
+"¡Pero ha fallado!"
+[Move failed] In function code DisableTargetUsingDifferentMove's def pbFailsAgainstTarget?
+
+[End of round 3]
+"Sigue nevando."
+
+===== Round 4 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Gigalith (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Gigalith (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Encanto (target 0)
+
+[Round order] El Wobbuffet salvaje (1), Gigalith (0)
+
+"¡Gigalith, cambia! ¡Regresa!"
+"¡Solo un poco más! ¡Aguanta, Keiridol!"
+[Use move] El Wobbuffet salvaje (1) used Encanto
+"¡El Wobbuffet salvaje ha usado Encanto!"
+[Stat change] Keiridol's Ataque changed by -2 (0 -> -2)
+"¡Ataque de Keiridol ha disminuido mucho!"
+
+[End of round 4]
+"Sigue nevando."
+
+===== Round 5 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Salpicadura
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Voz Cautivadora
+"¡Keiridol ha usado Voz Cautivadora!"
+[HP change] El Wobbuffet salvaje lost 19 HP (94 -> 75)
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Wobbuffet salvaje (1) used Salpicadura
+"¡El Wobbuffet salvaje ha usado Salpicadura!"
+"¡Pero no tuvo ningún efecto!"
+
+[End of round 5]
+"Sigue nevando."
+
+===== Round 6 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Salpicadura
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Voz Cautivadora
+"¡Keiridol ha usado Voz Cautivadora!"
+[HP change] El Wobbuffet salvaje lost 17 HP (75 -> 58)
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Wobbuffet salvaje (1) used Salpicadura
+"¡El Wobbuffet salvaje ha usado Salpicadura!"
+"¡Pero no tuvo ningún efecto!"
+
+[End of round 6]
+"Sigue nevando."
+
+===== Round 7 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Amnesia
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Voz Cautivadora
+"¡Keiridol ha usado Voz Cautivadora!"
+[HP change] El Wobbuffet salvaje lost 19 HP (58 -> 39)
+[Great Encore] Iniciando efecto de la habilidad.
+[Ability triggered] Keiridol's Gran Encore
+"¡El público aclama a Keiridol para realizar otro ataque más!"
+[Great Encore] Forzando uso del movimiento DISARMINGVOICE.
+[Use move] Keiridol used the called/simple move Voz Cautivadora
+"¡Keiridol ha usado Voz Cautivadora!"
+[HP change] El Wobbuffet salvaje lost 20 HP (39 -> 19)
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad ya se activó para este movimiento.
+[Great Encore] Movimiento ejecutado exitosamente.
+[Use move] El Wobbuffet salvaje (1) used Amnesia
+"¡El Wobbuffet salvaje ha usado Amnesia!"
+[Stat change] El Wobbuffet salvaje's Defensa Especial changed by +2 (2 -> 4)
+"¡Defensa Especial de el Wobbuffet salvaje ha aumentado mucho!"
+
+[End of round 7]
+"Sigue nevando."
+
+===== Round 8 =====
+
+[AI] Wobbuffet (1) is considering using Salpicadura...
+[AI] Wobbuffet (1) is considering using Encanto against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Otra Vez against Keiridol (0)...
+[AI] Wobbuffet (1) is considering using Amnesia...
+[AI] Move choices for Wobbuffet (1):
+   *  20.0% to use Salpicadura: score 100
+   *  20.0% to use Encanto (target 0): score 100
+   *  20.0% to use Otra Vez (target 0): score 100
+   *  20.0% to use Amnesia: score 100
+   *  20.0% to use Amnesia: score 100
+   => will use Salpicadura
+
+[Round order] Keiridol (0), el Wobbuffet salvaje (1)
+
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[HP change] El Wobbuffet salvaje lost 19 HP (19 -> 0)
+"¡Un golpe crítico!"
+"¡El Wobbuffet salvaje se debilitó!"
+"¡El Wobbuffet salvaje ha perdido energía!"
+[HP change] Keiridol gained 14 HP (55 -> 69)
+[Great Encore] Iniciando efecto de la habilidad.
+[Ability triggered] Keiridol's Gran Encore
+"¡El público aclama a Keiridol para realizar otro ataque más!"
+[Great Encore] Forzando uso del movimiento DRAININGKISS.
+[Use move] Keiridol used the called/simple move Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+"Pero no había objetivo..."
+"¡Keiridol obtuvo 1698 puntos de experiencia!"
+"¡Gyarados obtuvo 3808 puntos de experiencia!"
+"¡Gyarados subió al nivel 22!"
+"¡Gyarados subió al nivel 23!"
+"¡Gigalith obtuvo 3685 puntos de experiencia!"
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Cazabichos paco te desafía!"
+"¡Cazabichos paco saca a Zapdos!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] El Zapdos rival (1), Keiridol (0)
+[Ability triggered] El Zapdos rival's Sagacidad
+[Stat change] Keiridol's Ataque Especial changed by -1 (0 -> -1)
+"¡Ataque Especial de Keiridol ha disminuido!"
+[Ability triggered] Keiridol's Plano Unilateral
+"¡Keiridol activa Plano Unilateral y afecta el campo!"
+
+===== Round 1 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+
+**Exception: undefined local variable or method `b' for nil:NilClass
+010_AI_MoveEffects_SwitchingActing.rb:926:in `block (2 levels) in load_scripts_from_folder'
+006_Event_Handlers.rb:139:in `trigger'
+002_Battle_AI.rb:154:in `apply_move_effect_score'
+006_AI_ChooseMove.rb:295:in `pbGetMoveScore'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block (2 levels) in pbGetMoveScores'
+002_PBDebug.rb:6:in `logonerr'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block in pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each_with_index'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:465:in `pbDefaultChooseEnemyCommand'
+010_Battle_CommandPhase.rb:216:in `block in pbCommandPhaseLoop'
+010_Battle_CommandPhase.rb:204:in `loop'
+010_Battle_CommandPhase.rb:204:in `pbCommandPhaseLoop'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:383:in `pbCommandPhase'
+003_Battle_StartAndEnd.rb:336:in `block (2 levels) in pbBattleLoop'
+002_PBDebug.rb:6:in `logonerr'
+003_Battle_StartAndEnd.rb:336:in `block in pbBattleLoop'
+003_Battle_StartAndEnd.rb:324:in `loop'
+003_Battle_StartAndEnd.rb:324:in `pbBattleLoop'
+012_Fondos Terrenos.rb:102:in `pbStartBattleCore'
+003_Battle_StartAndEnd.rb:271:in `pbStartBattle'
+002_Overworld_BattleStarting.rb:521:in `block (2 levels) in start_core'
+003_Overworld_BattleIntroAnim.rb:55:in `pbSceneStandby'
+002_Overworld_BattleStarting.rb:521:in `block in start_core'
+003_Overworld_BattleIntroAnim.rb:126:in `pbBattleAnimation'
+002_Overworld_BattleStarting.rb:520:in `start_core'
+002_Overworld_BattleStarting.rb:486:in `start'
+003_Debug_MenuCommands.rb:376:in `block (2 levels) in load_scripts_from_folder'
+007_Event_HandlerCollections.rb:134:in `call'
+002_Debug_Menus.rb:138:in `block in pbDebugMenu'
+002_Debug_Menus.rb:100:in `loop'
+002_Debug_Menus.rb:100:in `pbDebugMenu'
+003_Scene_Map.rb:118:in `block in call_debug'
+003_MessageConfig.rb:589:in `pbFadeOutIn'
+003_Scene_Map.rb:118:in `call_debug'
+003_Scene_Map.rb:209:in `update'
+024_Barras entrenadores.rb:187:in `update'
+032_UnrealTime.rb:247:in `update'
+008_Debug Passability.rb:247:in `block in main'
+008_Debug Passability.rb:235:in `loop'
+008_Debug Passability.rb:235:in `main'
+999_Main.rb:39:in `mainFunctionDebug'
+999_Main.rb:22:in `block in mainFunction'
+004_Errors.rb:81:in `pbCriticalCode'
+999_Main.rb:22:in `mainFunction'
+999_Main.rb:49:in `block (2 levels) in load_scripts_from_folder'
+999_Main.rb:48:in `loop'
+999_Main.rb:48:in `block in load_scripts_from_folder'
+000:Main:31:in `eval'
+000:Main:31:in `block in load_scripts_from_folder'
+000:Main:28:in `each'
+000:Main:28:in `load_scripts_from_folder'
+000:Main:41:in `block in load_scripts_from_folder'
+000:Main:40:in `each'
+000:Main:40:in `load_scripts_from_folder'
+000:Main:45:in `<main>'
+-e:in `eval'
+
+
+[AI] Zapdos (1) is considering using Electropalmas against Keiridol (0)...
+     + 30: damaging move (predicted damage 155 = 281% of target's HP)
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     -  5: function code modifier (against target)
+[AI] Zapdos (1) is considering using Respiro...
+     - 80: move will fail
+[AI] Move choices for Zapdos (1):
+   *  10.5% to use Autotomía: score 100
+   *  89.5% to use Electropalmas (target 0): score 130
+   *   0.0% to use Condena Silvana (target 0): score 95
+   *   0.0% to use Respiro: score 20
+   => will use Electropalmas (target 0)
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Electropalmas
+"¡El Zapdos rival ha usado Electropalmas!"
+[HP change] Keiridol lost 55 HP (55 -> 0)
+"¡Keiridol se debilitó!"
+"¡El Zapdos rival ha usado toda su electricidad!"
+
+[End of round 1]
+"Sigue nevando."
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Cazabichos paco te desafía!"
+"¡Cazabichos paco saca a Zapdos!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] El Zapdos rival (1), Keiridol (0)
+[Ability triggered] El Zapdos rival's Sagacidad
+[Stat change] Keiridol's Ataque Especial changed by -1 (0 -> -1)
+"¡Ataque Especial de Keiridol ha disminuido!"
+[Ability triggered] Keiridol's Plano Unilateral
+"¡Keiridol activa Plano Unilateral y afecta el campo!"
+
+===== Round 1 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+
+**Exception: undefined local variable or method `b' for nil:NilClass
+010_AI_MoveEffects_SwitchingActing.rb:926:in `block (2 levels) in load_scripts_from_folder'
+006_Event_Handlers.rb:139:in `trigger'
+002_Battle_AI.rb:154:in `apply_move_effect_score'
+006_AI_ChooseMove.rb:295:in `pbGetMoveScore'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block (2 levels) in pbGetMoveScores'
+002_PBDebug.rb:6:in `logonerr'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block in pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each_with_index'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:465:in `pbDefaultChooseEnemyCommand'
+010_Battle_CommandPhase.rb:216:in `block in pbCommandPhaseLoop'
+010_Battle_CommandPhase.rb:204:in `loop'
+010_Battle_CommandPhase.rb:204:in `pbCommandPhaseLoop'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:383:in `pbCommandPhase'
+003_Battle_StartAndEnd.rb:336:in `block (2 levels) in pbBattleLoop'
+002_PBDebug.rb:6:in `logonerr'
+003_Battle_StartAndEnd.rb:336:in `block in pbBattleLoop'
+003_Battle_StartAndEnd.rb:324:in `loop'
+003_Battle_StartAndEnd.rb:324:in `pbBattleLoop'
+012_Fondos Terrenos.rb:102:in `pbStartBattleCore'
+003_Battle_StartAndEnd.rb:271:in `pbStartBattle'
+002_Overworld_BattleStarting.rb:521:in `block (2 levels) in start_core'
+003_Overworld_BattleIntroAnim.rb:55:in `pbSceneStandby'
+002_Overworld_BattleStarting.rb:521:in `block in start_core'
+003_Overworld_BattleIntroAnim.rb:126:in `pbBattleAnimation'
+002_Overworld_BattleStarting.rb:520:in `start_core'
+002_Overworld_BattleStarting.rb:486:in `start'
+003_Debug_MenuCommands.rb:376:in `block (2 levels) in load_scripts_from_folder'
+007_Event_HandlerCollections.rb:134:in `call'
+002_Debug_Menus.rb:138:in `block in pbDebugMenu'
+002_Debug_Menus.rb:100:in `loop'
+002_Debug_Menus.rb:100:in `pbDebugMenu'
+003_Scene_Map.rb:118:in `block in call_debug'
+003_MessageConfig.rb:589:in `pbFadeOutIn'
+003_Scene_Map.rb:118:in `call_debug'
+003_Scene_Map.rb:209:in `update'
+024_Barras entrenadores.rb:187:in `update'
+032_UnrealTime.rb:247:in `update'
+008_Debug Passability.rb:247:in `block in main'
+008_Debug Passability.rb:235:in `loop'
+008_Debug Passability.rb:235:in `main'
+999_Main.rb:39:in `mainFunctionDebug'
+999_Main.rb:22:in `block in mainFunction'
+004_Errors.rb:81:in `pbCriticalCode'
+999_Main.rb:22:in `mainFunction'
+999_Main.rb:49:in `block (2 levels) in load_scripts_from_folder'
+999_Main.rb:48:in `loop'
+999_Main.rb:48:in `block in load_scripts_from_folder'
+000:Main:31:in `eval'
+000:Main:31:in `block in load_scripts_from_folder'
+000:Main:28:in `each'
+000:Main:28:in `load_scripts_from_folder'
+000:Main:41:in `block in load_scripts_from_folder'
+000:Main:40:in `each'
+000:Main:40:in `load_scripts_from_folder'
+000:Main:45:in `<main>'
+-e:in `eval'
+
+
+[AI] Zapdos (1) is considering using Electropalmas against Keiridol (0)...
+     + 30: damaging move (predicted damage 155 = 124% of target's HP)
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     -  5: function code modifier (against target)
+[AI] Zapdos (1) is considering using Respiro...
+     - 80: move will fail
+[AI] Move choices for Zapdos (1):
+   *  10.5% to use Autotomía: score 100
+   *  89.5% to use Electropalmas (target 0): score 130
+   *   0.0% to use Condena Silvana (target 0): score 95
+   *   0.0% to use Respiro: score 20
+   => will use Electropalmas (target 0)
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+"¡Keiridol, cambia! ¡Regresa!"
+"¡Te toca, Gigalith!"
+[Use move] El Zapdos rival (1) used Electropalmas
+"¡El Zapdos rival ha usado Electropalmas!"
+[HP change] Gigalith lost 68 HP (68 -> 0)
+"¡Gigalith se debilitó!"
+"¡El Zapdos rival ha usado toda su electricidad!"
+
+[End of round 1]
+"Sigue nevando."
+"¡Te toca, Keiridol!"
+[Ability triggered] Keiridol's Plano Unilateral
+"¡Keiridol activa Plano Unilateral y afecta el campo!"
+
+===== Round 2 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+
+**Exception: undefined local variable or method `b' for nil:NilClass
+010_AI_MoveEffects_SwitchingActing.rb:926:in `block (2 levels) in load_scripts_from_folder'
+006_Event_Handlers.rb:139:in `trigger'
+002_Battle_AI.rb:154:in `apply_move_effect_score'
+006_AI_ChooseMove.rb:295:in `pbGetMoveScore'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block (2 levels) in pbGetMoveScores'
+002_PBDebug.rb:6:in `logonerr'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:514:in `block in pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `each_with_index'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:483:in `pbGetMoveScores'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:465:in `pbDefaultChooseEnemyCommand'
+010_Battle_CommandPhase.rb:216:in `block in pbCommandPhaseLoop'
+010_Battle_CommandPhase.rb:204:in `loop'
+010_Battle_CommandPhase.rb:204:in `pbCommandPhaseLoop'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:383:in `pbCommandPhase'
+003_Battle_StartAndEnd.rb:336:in `block (2 levels) in pbBattleLoop'
+002_PBDebug.rb:6:in `logonerr'
+003_Battle_StartAndEnd.rb:336:in `block in pbBattleLoop'
+003_Battle_StartAndEnd.rb:324:in `loop'
+003_Battle_StartAndEnd.rb:324:in `pbBattleLoop'
+012_Fondos Terrenos.rb:102:in `pbStartBattleCore'
+003_Battle_StartAndEnd.rb:271:in `pbStartBattle'
+002_Overworld_BattleStarting.rb:521:in `block (2 levels) in start_core'
+003_Overworld_BattleIntroAnim.rb:55:in `pbSceneStandby'
+002_Overworld_BattleStarting.rb:521:in `block in start_core'
+003_Overworld_BattleIntroAnim.rb:126:in `pbBattleAnimation'
+002_Overworld_BattleStarting.rb:520:in `start_core'
+002_Overworld_BattleStarting.rb:486:in `start'
+003_Debug_MenuCommands.rb:376:in `block (2 levels) in load_scripts_from_folder'
+007_Event_HandlerCollections.rb:134:in `call'
+002_Debug_Menus.rb:138:in `block in pbDebugMenu'
+002_Debug_Menus.rb:100:in `loop'
+002_Debug_Menus.rb:100:in `pbDebugMenu'
+003_Scene_Map.rb:118:in `block in call_debug'
+003_MessageConfig.rb:589:in `pbFadeOutIn'
+003_Scene_Map.rb:118:in `call_debug'
+003_Scene_Map.rb:209:in `update'
+024_Barras entrenadores.rb:187:in `update'
+032_UnrealTime.rb:247:in `update'
+008_Debug Passability.rb:247:in `block in main'
+008_Debug Passability.rb:235:in `loop'
+008_Debug Passability.rb:235:in `main'
+999_Main.rb:39:in `mainFunctionDebug'
+999_Main.rb:22:in `block in mainFunction'
+004_Errors.rb:81:in `pbCriticalCode'
+999_Main.rb:22:in `mainFunction'
+999_Main.rb:49:in `block (2 levels) in load_scripts_from_folder'
+999_Main.rb:48:in `loop'
+999_Main.rb:48:in `block in load_scripts_from_folder'
+000:Main:31:in `eval'
+000:Main:31:in `block in load_scripts_from_folder'
+000:Main:28:in `each'
+000:Main:28:in `load_scripts_from_folder'
+000:Main:41:in `block in load_scripts_from_folder'
+000:Main:40:in `each'
+000:Main:40:in `load_scripts_from_folder'
+000:Main:45:in `<main>'
+-e:in `eval'
+
+
+[AI] Zapdos (1) is considering using Electropalmas...
+     - 80: move will fail
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     -  5: function code modifier (against target)
+[AI] Zapdos (1) is considering using Respiro...
+     - 80: move will fail
+[AI] Move choices for Zapdos (1):
+   *  55.3% to use Autotomía: score 100
+   *   0.0% to use Electropalmas: score 20
+   *  44.7% to use Condena Silvana (target 0): score 95
+   *   0.0% to use Respiro: score 20
+   => will use Autotomía
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Autotomía
+"¡El Zapdos rival ha usado Autotomía!"
+[HP change] El Zapdos rival lost 85 HP (171 -> 86)
+"¡El Zapdos rival mudó su cola para crear un señuelo!"
+"El Zapdos rival volvió con Cazabichos paco!"
+"¡Cazabichos paco sacó a Bulbasaur!"
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[Substitute HP change] El Bulbasaur rival's substitute lost 15 HP (21 -> 6)
+"El sustituto recibió el daño por el Bulbasaur rival!"
+"No es muy eficaz..."
+"¡El Bulbasaur rival ha perdido energía!"
+
+[End of round 2]
+"Sigue nevando."
+
+===== Round 3 =====
+
+[AI] Bulbasaur (1) is considering using Clonatipo against Keiridol (0)...
+[AI] Bulbasaur (1) is considering using Camuflaje...
+[AI] Bulbasaur (1) is considering using Sustituto...
+     - 80: move will fail
+[AI] Bulbasaur (1) is considering using Empapar against Keiridol (0)...
+[AI] Move choices for Bulbasaur (1):
+   *  33.3% to use Clonatipo (target 0): score 100
+   *  33.3% to use Camuflaje: score 100
+   *   0.0% to use Sustituto: score 20
+   *  33.3% to use Empapar (target 0): score 100
+   => will use Clonatipo (target 0)
+
+[Round order] Keiridol (0), el Bulbasaur rival (1)
+
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[Substitute HP change] El Bulbasaur rival's substitute lost 6 HP (6 -> 0)
+"El sustituto recibió el daño por el Bulbasaur rival!"
+"No es muy eficaz..."
+"¡El sustituto de El Bulbasaur rival cayó!"
+"¡El Bulbasaur rival ha perdido energía!"
+[Use move] El Bulbasaur rival (1) used Clonatipo
+"¡El Bulbasaur rival ha usado Clonatipo!"
+"¡El Bulbasaur rival ahora es del mismo tipo que el Keiridol!"
+
+[End of round 3]
+"Sigue nevando."
+
+===== Round 4 =====
+
+"Elige un resultado para este combate."
+
+===== Player won =====
+
+"¡Cazabichos paco ha perdido!"
+"..."
+
+"¡Has ganado 800$ por vencer!"
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Cazabichos paco te desafía!"
+"¡Cazabichos paco saca a Zapdos!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] El Zapdos rival (1), Keiridol (0)
+[Ability triggered] El Zapdos rival's Sagacidad
+[Stat change] Keiridol's Ataque Especial changed by -1 (0 -> -1)
+"¡Ataque Especial de Keiridol ha disminuido!"
+[Ability triggered] Keiridol's Plano Unilateral
+"¡Keiridol activa Plano Unilateral y afecta el campo!"
+
+===== Round 1 =====
+
+[AI] Zapdos (1) is considering using Electropalmas against Keiridol (0)...
+     + 30: damaging move (predicted damage 155 = 124% of target's HP)
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     -  5: function code modifier (against target)
+[AI] Zapdos (1) is considering using Respiro...
+     - 80: move will fail
+[AI] Move choices for Zapdos (1):
+   * 100.0% to use Electropalmas (target 0): score 130
+   *   0.0% to use Condena Silvana (target 0): score 95
+   *   0.0% to use Respiro: score 20
+   => will use Electropalmas (target 0)
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Electropalmas
+"¡El Zapdos rival ha usado Electropalmas!"
+[HP change] Keiridol lost 125 HP (125 -> 0)
+"¡Keiridol se debilitó!"
+"¡El Zapdos rival ha usado toda su electricidad!"
+
+[End of round 1]
+"Sigue nevando."
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Cazabichos paco te desafía!"
+"¡Cazabichos paco saca a Zapdos!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] El Zapdos rival (1), Keiridol (0)
+[Ability triggered] El Zapdos rival's Sagacidad
+[Stat change] Keiridol's Ataque Especial changed by -1 (0 -> -1)
+"¡Ataque Especial de Keiridol ha disminuido!"
+[Ability triggered] Keiridol's Plano Unilateral
+"¡Keiridol activa Plano Unilateral y afecta el campo!"
+
+===== Round 1 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+[AI] Zapdos (1) is considering using Electropalmas against Keiridol (0)...
+     +  8: damaging move (predicted damage 41 = 32% of target's HP)
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     -  5: function code modifier (against target)
+[AI] Zapdos (1) is considering using Respiro...
+     - 80: move will fail
+[AI] Move choices for Zapdos (1):
+   *  31.8% to use Autotomía: score 100
+   *  43.9% to use Electropalmas (target 0): score 108
+   *  24.2% to use Condena Silvana (target 0): score 95
+   *   0.0% to use Respiro: score 20
+   => will use Condena Silvana (target 0)
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Condena Silvana
+"¡El Zapdos rival ha usado Condena Silvana!"
+"¡Keiridol ha cambiado a tipo Planta!"
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[HP change] El Zapdos rival lost 18 HP (171 -> 153)
+"¡El Zapdos rival ha perdido energía!"
+
+[End of round 1]
+"Sigue nevando."
+
+===== Round 2 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+[AI] Zapdos (1) is considering using Electropalmas against Keiridol (0)...
+     +  4: damaging move (predicted damage 20 = 16% of target's HP)
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     move will not affect Keiridol (0)
+     - 80: move will fail
+[AI] Zapdos (1) is considering using Respiro...
+[AI] Move choices for Zapdos (1):
+   *  31.6% to use Autotomía: score 100
+   *  36.8% to use Electropalmas (target 0): score 104
+   *   0.0% to use Condena Silvana (target 0): score 20
+   *  31.6% to use Respiro: score 100
+   => will use Electropalmas (target 0)
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Electropalmas
+"¡El Zapdos rival ha usado Electropalmas!"
+[HP change] Keiridol lost 20 HP (125 -> 105)
+"No es muy eficaz..."
+"¡El Zapdos rival ha usado toda su electricidad!"
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[HP change] El Zapdos rival lost 17 HP (153 -> 136)
+"¡El Zapdos rival ha perdido energía!"
+[HP change] Keiridol gained 13 HP (105 -> 118)
+
+[End of round 2]
+"Sigue nevando."
+
+===== Round 3 =====
+
+[AI] Zapdos (1) is considering using Autotomía...
+[AI] Zapdos (1) is considering using Electropalmas...
+     - 80: move will fail
+[AI] Zapdos (1) is considering using Condena Silvana against Keiridol (0)...
+     move will not affect Keiridol (0)
+     - 80: move will fail
+[AI] Zapdos (1) is considering using Respiro...
+[AI] Move choices for Zapdos (1):
+   *  50.0% to use Autotomía: score 100
+   *   0.0% to use Electropalmas: score 20
+   *   0.0% to use Condena Silvana (target 0): score 20
+   *  50.0% to use Respiro: score 100
+   => will use Autotomía
+
+[Round order] El Zapdos rival (1), Keiridol (0)
+
+[Use move] El Zapdos rival (1) used Autotomía
+"¡El Zapdos rival ha usado Autotomía!"
+[HP change] El Zapdos rival lost 85 HP (136 -> 51)
+"¡El Zapdos rival mudó su cola para crear un señuelo!"
+"El Zapdos rival volvió con Cazabichos paco!"
+"¡Cazabichos paco sacó a Bulbasaur!"
+[Use move] Keiridol (0) used Beso Drenaje
+"¡Keiridol ha usado Beso Drenaje!"
+[Substitute HP change] El Bulbasaur rival's substitute lost 10 HP (21 -> 11)
+"El sustituto recibió el daño por el Bulbasaur rival!"
+"No es muy eficaz..."

@@ -69,7 +69,7 @@ ItemHandlers::UseInField.add(:SUPERROD, proc { |item|
     # Aquí puedes incluir otras acciones adicionales si lo deseas
   else
     pbFishingEnd
-    pbWait(0.5)
+    pbWait(0.2)
     pbMessage(_INTL("Parece que no hubo tanta suerte..."))
   end
   

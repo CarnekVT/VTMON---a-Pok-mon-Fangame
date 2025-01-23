@@ -8,12 +8,11 @@ Pokemon = POPPLIO,12
     Moves = WATERGUN,ROUND,DISARMINGVOICE,ICYWIND
     Ability = TORRENT
     IV = 20,20,20,20,20,20
-Pokemon = MINCCINO,14
-    Name = Hichulla
+Pokemon = HICHULLA,14
     Moves = ROUND,DRAININGKISS,TAILWHIP,DOUBLEKICK
     AbilityIndex = 0
     Item = SITRUSBERRY
-    Gender = male
+    Gender = female
     IV = 20,20,20,20,20,20
     Ball = LOVEBALL
 #-------------------------------
@@ -46,4 +45,12 @@ Pokemon = MINCCINO,2
 [BLACKBELT,Jeff]
 LoseText = ...
 Pokemon = VENUSAUR,30
-    Moves = ACCELEROCK
+    Moves = ACCELEROCK,FAKEOUT
+#-------------------------------
+[BUGCATCHER,paco]
+LoseText = ...
+Pokemon = ZAPDOS,50
+    Moves = SHEDTAIL,DOUBLESHOCK,FORESTSCURSE,ROOST
+    Ability = PROTEAN
+Pokemon = BULBASAUR,50
+    Moves = REFLECTTYPE,CAMOUFLAGE,SUBSTITUTE,SOAK

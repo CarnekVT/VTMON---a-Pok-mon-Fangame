@@ -80,3 +80,32 @@ class Battle::Move::RebootUser < Battle::Move
 end
 
 #===============================================================================
+# Causes Poison, Paralysis, or Sleep. Fails if this isn't the user's first turn.
+# (Mayimpresion)
+#===============================================================================
+class Battle::Move::Mayimpresion < Battle::Move::FlinchTarget
+  def pbMoveFailed?(user, targets)
+    # Verificamos si no es el primer turno del usuario
+    if user.turnCount > 1
+      @battle.pbDisplay(_INTL("¡Pero ha fallado!", user.pbThis, @name))
+      return true
+    end
+    return false
+  end
+
+  def pbAdditionalEffect(user, target)
+    # Aplicar el efecto de flinch
+    super(user, target)  # Llama al método de la clase base para aplicar flinch
+
+    # Ahora, aplicar un estado alterado aleatorio
+    return if target.damageState.substitute
+    case @battle.pbRandom(3)
+    when 0
+      target.pbPoison(user) if target.pbCanPoison?(user, false, self)
+    when 1
+      target.pbParalyze(user) if target.pbCanParalyze?(user, false, self)
+    when 2
+      target.pbSleep if target.pbCanSleep?(user, false, self)
+    end
+  end
+end

@@ -312,68 +312,84 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
   proc { |ability, user, targets, move, battle|
     PBDebug.log("[Great Encore] Iniciando efecto de la habilidad.")
 
-    # Asegurar que `@effects` esté inicializado
     user.effects ||= []
 
-    # Prevenir activaciones múltiples para el mismo movimiento
     if user.effects[PBEffects::GreatEncoreTriggered]
       PBDebug.log("[Great Encore] La habilidad ya se activó para este movimiento.")
       next
     end
 
-    # Verificar si el movimiento es válido
     unless move.is_a?(Battle::Move)
       PBDebug.log("[Great Encore] Movimiento inválido. No es un objeto Battle::Move.")
       next
     end
 
-    # Probabilidad de activación 
-    if battle.pbRandom(100) >= 40 # Cambiar a 30 para comportamiento final
+    if battle.pbRandom(100) >= 40
       PBDebug.log("[Great Encore] La habilidad no se activó por probabilidad.")
       next
     end
 
-    # No se activa si el movimiento golpea más de una vez
     if move.pbNumHits(user, targets) > 1
       PBDebug.log("[Great Encore] Movimiento golpea múltiples veces. Habilidad no activada.")
       next
     end
 
+    if move.function_code == "AttackAndSkipNextTurn" || move.function_code == "SwitchOutUserDamagingMove" || move.function_code == "FailsIfNotUserFirstTurn" ||
+      move.id == :FAKEOUT || move.id == :MAYIMPRESION
+      PBDebug.log("[Great Encore] Movimiento bloqueado detectado. Habilidad no activada.")
+      next
+    end
+
     # Verificar si algún objetivo fue afectado
-    targets = [targets] unless targets.is_a?(Array)
+    targets = [targets] unless targets.is_a?(Array)  # Asegura que targets sea siempre un arreglo
     all_unaffected = targets.all? { |target| target.damageState.unaffected }
     if all_unaffected
       PBDebug.log("[Great Encore] Ningún objetivo fue afectado. Habilidad no activada.")
       next
     end
 
-    # Activar la habilidad
+    # Verificar si algún objetivo atacado fue debilitado
+    original_target = targets.find { |target| !target.fainted? }
+    if !original_target
+      PBDebug.log("[Great Encore] Todos los objetivos atacados fueron debilitados. Habilidad no activada.")
+      next
+    end
+
     user.effects[PBEffects::GreatEncoreTriggered] = true
     battle.pbShowAbilitySplash(user)
 
-    # Mostrar el mensaje del público
     battle.pbDisplay(_INTL("¡El público aclama a {1} para realizar otro ataque más!", user.pbThis(true)))
-
-    # Ocultar el splash después del mensaje
     battle.pbHideAbilitySplash(user)
 
-    # Ejecutar nuevamente el movimiento
+    # Seleccionar el objetivo del nuevo ataque
+    new_target = original_target
+    if new_target.fainted?
+      # Elegir otro objetivo aleatorio válido si el original fue debilitado
+      potential_targets = battle.pbAbleOpposingBattlers(user.index)
+      if potential_targets.empty?
+        PBDebug.log("[Great Encore] No hay otros objetivos válidos. Habilidad no activada.")
+        next
+      end
+      new_target = potential_targets.sample
+    end
+
+    # Ejecutar nuevamente el movimiento dirigido al nuevo objetivo
     new_move = user.moves.find { |m| m.id == move.id }
     if new_move
-      PBDebug.log("[Great Encore] Forzando uso del movimiento #{new_move.id}.")
-      user.pbUseMoveSimple(new_move.id) # Usar movimiento directamente
+      PBDebug.log("[Great Encore] Forzando uso del movimiento #{new_move.id} contra el objetivo #{new_target.pbThis}.")
+      user.pbUseMoveSimple(new_move.id, new_target.index)
       PBDebug.log("[Great Encore] Movimiento ejecutado exitosamente.")
     else
       PBDebug.log("[Great Encore] No se pudo encontrar un movimiento válido para repetir.")
     end
 
-    # Restablecer efecto para permitir futuras activaciones
     user.effects[PBEffects::GreatEncoreTriggered] = false
   }
 )
 
 module PBEffects
   GreatEncoreTriggered = 1000 # Un número suficientemente alto para evitar conflictos
+  TypeChangeBlocked = 10001
 end
 
 class Battle
@@ -387,3 +403,16 @@ class Battle
     great_encore_end_of_turn # Llamar al método original
   end
 end
+
+# Habilidad: Sagacidad
+Battle::AbilityEffects::OnSwitchIn.add(:SAGACITY, proc { |ability, battler, battle|
+  battle.pbShowAbilitySplash(battler)
+  battle.eachOtherSideBattler(battler.index) do |other_battler|
+    next if !other_battler || other_battler.fainted? # Verifica si el rival es válido y no está debilitado
+    if other_battler.pbCanLowerStatStage?(:SPECIAL_ATTACK, battler)
+      other_battler.pbLowerStatStage(:SPECIAL_ATTACK, 1, battler)
+    end
+  end
+  battle.pbHideAbilitySplash(battler)
+})
+

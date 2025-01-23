@@ -88,3 +88,30 @@ FunctionCode = GlitchTarget
 Flags = CanProtect,CanMirrorMove
 Description = Energía cibernética que corrompe al objetivo.
 #-------------------------------
+[MAYIMPRESION]
+Name = Mayimpresión
+Type = GRASS
+Category = Physical
+Power = 40
+Accuracy = 100
+TotalPP = 10
+Target = NearOther
+Priority = 3
+FunctionCode = Mayimpresion
+Flags = Contact,CanProtect,CanMirrorMove
+EffectChance = 100
+Description = Ataca primero y, además, amedrenta y envenena, paraliza o duerme al rival. Solo sirve en el primer turno. 
+#-------------------------------
+[TRIKSTERSPYRE]
+Name = Pira Picardia
+Type = FIRE
+Category = Special
+Power = 55
+Accuracy = 95
+TotalPP = 15
+Target = AllNearFoes
+FunctionCode = LowerTargetSpAtk1
+Flags = CanProtect,CanMirrorMove,CannotMetronome
+EffectChance = 100
+Description = Se rie maliciosamente mientras lanza flamas. Baja el Ataque Especial de los objetivos.
+#-------------------------------

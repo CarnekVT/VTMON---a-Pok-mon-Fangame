@@ -43,6 +43,16 @@ Description = Al entrar en combate, copia la habilidad de uno de los rivales ady
 Name = Gran Encore
 Description = El Pokémon tiene un 40% de atacar dos veces a pedido del público.
 #-------------------------------
+# Uynuk's Line Abilities
+#-------------------------------
+
+#-------------------------------
+# Kreti's Line Abilities
+#-------------------------------
+[SAGACITY]
+Name = Sagacidad
+Description = Al entrar en combate, la astucia del usuario intimida al rival de tal manera que su Ataque Especial disminuye un nivel.
+#-------------------------------
 # Common Abilities
 #-------------------------------
 [POLARSTRATUS]

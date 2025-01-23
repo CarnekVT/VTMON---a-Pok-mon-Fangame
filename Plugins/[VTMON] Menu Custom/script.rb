@@ -254,9 +254,17 @@ def openOptions
 end
 
 def openBag
+  # Luego abrir la mochila como en el menú de pausa
   scene = PokemonBag_Scene.new
   screen = PokemonBagScreen.new(scene, $bag)
-  pbFadeOutIn { screen.pbStartScreen }
+  item = nil 
+  pbFadeOutIn do
+    item = screen.pbStartScreen  # El ítem seleccionado en la mochila
+  end 
+  # Si un item es seleccionado, se usa como objeto clave
+  if item
+    Kernel.pbUseKeyItemInField(item)
+  end
 end
 
 def openParty

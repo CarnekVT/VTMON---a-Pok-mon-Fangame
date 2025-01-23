@@ -251,3 +251,7 @@ REGIONAL_SPECIES = [:RATTATA,:RATICATE,:RAICHU,:SANDSHREW,:SANDSLASH,:VULPIX,:NI
 # Para que el cambia formas no las muestre
 ########################################################################################
 FORMS_BLACKLIST = {:DARMANITAN => [1, 3]}
+
+# Lista de objetos consumibles que NO serán recuperados luego del combate
+  # el formato es [:IDOBJETO] por ejemplo [:SITRUSBERRY]
+  RESTORE_HELD_ITEMS_BLACKLIST = []

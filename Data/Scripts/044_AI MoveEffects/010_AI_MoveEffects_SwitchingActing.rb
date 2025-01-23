@@ -921,13 +921,18 @@ Battle::AI::Handlers::MoveFailureCheck.add("UserMakeSubstituteSwitchOut",
 )
 Battle::AI::Handlers::MoveEffectScore.add("UserMakeSubstituteSwitchOut",
   proc { |score, move, user, ai, battle|
-    # Switch out score
+    # Evaluar si es posible realizar el cambio
+    can_switch = false
+    battle.eachInTeamFromBattlerIndex(user.index) do |pkmn, i|
+      can_switch = true if battle.pbCanSwitchIn?(user.index, i)
+    end
+    next Battle::AI::MOVE_USELESS_SCORE unless can_switch
+    # Evaluar puntuaciones de cambio y sustituto
     switchout_score = Battle::AI::Handlers.apply_move_effect_against_target_score("SwitchOutUserStatusMove",
-        0, move, user, b, ai, battle)
+        0, move, user, nil, ai, battle) # Cambié 'b' a 'nil'
     score += switchout_score if switchout_score != Battle::AI::MOVE_USELESS_SCORE
-    # Substitute score
     substitute_score = Battle::AI::Handlers.apply_move_effect_against_target_score("UserMakeSubstitute",
-        0, move, user, b, ai, battle)
+        0, move, user, nil, ai, battle) # Cambié 'b' a 'nil'
     score += substitute_score if substitute_score != Battle::AI::MOVE_USELESS_SCORE
     next score
   }

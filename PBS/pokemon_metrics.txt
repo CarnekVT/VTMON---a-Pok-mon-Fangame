@@ -4400,7 +4400,7 @@ ShadowSprite = 0,-4,5
 #-------------------------------
 [ROOKIDEE]
 BackSprite = 6,17
-FrontSprite = 4,29
+FrontSprite = -2,32
 ShadowSprite = 0,-5,-11
 #-------------------------------
 [CORVISQUIRE]
@@ -5475,3 +5475,14 @@ BackSprite = 0,38
 FrontSprite = 0,25
 ShadowSprite = 10,0,-8
 SuperShinyHue = 244
+#-------------------------------
+[KEIRIDOL]
+BackSprite = 0,0
+FrontSprite = 0,0
+ShadowSprite = 0,0,0
+#-------------------------------
+[HICHULLA]
+BackSprite = 0,0
+FrontSprite = 0,21
+ShadowSprite = 0,0,0
+AnimationSpeed = 1

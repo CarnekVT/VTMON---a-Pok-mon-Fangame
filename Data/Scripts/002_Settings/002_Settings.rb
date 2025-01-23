@@ -352,6 +352,8 @@ module Settings
   # Desactivar si no quieres mostrar las MOs en el menú de la D (Objetos registrados).
   SHOW_HMS_IN_SPECIAL_MENU = false
 
+  EXPSHARE_ENABLED = true
+
   #=============================================================================
   
   # Par de IDs de mapas, en los que el mensaje con el nombre de la zona no se 
