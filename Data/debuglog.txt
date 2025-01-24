@@ -759,3 +759,360 @@
 [Substitute HP change] El Bulbasaur rival's substitute lost 10 HP (21 -> 11)
 "El sustituto recibió el daño por el Bulbasaur rival!"
 "No es muy eficaz..."
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Karateka Jeff te desafía!"
+"¡Karateka Jeff saca a Keiridol!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+===== Round 1 =====
+
+[AI] Keiridol (1) is considering using Roca Veloz against Keiridol (0)...
+     +  8: damaging move (predicted damage 12 = 35% of target's HP)
+[AI] Keiridol (1) is considering using Sorpresa against Keiridol (0)...
+     +  8: damaging move (predicted damage 12 = 35% of target's HP)
+[AI] Move choices for Keiridol (1):
+   *  50.0% to use Roca Veloz (target 0): score 108
+   *  50.0% to use Sorpresa (target 0): score 108
+   => will use Sorpresa (target 0)
+
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+[Use move] Keiridol (0) used Mayimpresión
+"¡Keiridol ha usado Mayimpresión!"
+[HP change] El Keiridol rival lost 7 HP (95 -> 88)
+"No es muy eficaz..."
+"¡El Keiridol rival se protegió con su ilusión ígnea!"
+"¡Keiridol se ha quemado!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Venusaur rival (1) used Sorpresa
+"¡El Venusaur rival ha usado Sorpresa!"
+[HP change] Keiridol lost 10 HP (34 -> 24)
+
+[End of round 1]
+"Sigue nevando."
+[HP change] Keiridol lost 7 HP (24 -> 17)
+"¡El Keiridol se resiente de la quemadura!"
+
+===== Round 2 =====
+
+[AI] Venusaur (1) is considering using Roca Veloz against Keiridol (0)...
+     + 17: damaging move (predicted damage 12 = 70% of target's HP)
+[AI] Venusaur (1) is considering using Sorpresa...
+     - 80: move will fail
+[AI] Move choices for Venusaur (1):
+   * 100.0% to use Roca Veloz (target 0): score 117
+   *   0.0% to use Sorpresa: score 20
+   => will use Roca Veloz (target 0)
+
+[Round order] El Venusaur rival (1), Keiridol (0)
+
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival ha usado Roca Veloz!"
+[HP change] Keiridol lost 12 HP (17 -> 5)
+[Use move] Keiridol (0) used Hiperrayo
+"¡Keiridol ha usado Hiperrayo!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] Movimiento bloqueado detectado. Habilidad no activada.
+
+[End of round 2]
+"Sigue nevando."
+[HP change] Keiridol lost 5 HP (5 -> 0)
+"¡El Keiridol se resiente de la quemadura!"
+"¡Keiridol se debilitó!"
+"¡Adelante, Gyarados!"
+[Ability triggered] Gyarados's Intimidación
+[Stat change] El Venusaur rival's Ataque changed by -1 (0 -> -1)
+"¡Ataque de el Venusaur rival ha disminuido!"
+
+===== Round 3 =====
+
+[AI] Venusaur (1) is considering using Roca Veloz against Gyarados (0)...
+     +  8: damaging move (predicted damage 26 = 33% of target's HP)
+[AI] Venusaur (1) is considering using Sorpresa...
+     - 80: move will fail
+[AI] Move choices for Venusaur (1):
+   * 100.0% to use Roca Veloz (target 0): score 108
+   *   0.0% to use Sorpresa: score 20
+   => will use Roca Veloz (target 0)
+
+[Round order] El Venusaur rival (1), Gyarados (0)
+
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival ha usado Roca Veloz!"
+[HP change] Gyarados lost 23 HP (78 -> 55)
+"¡Es supereficaz!"
+[Use move] Gyarados (0) used Cascada
+"¡Gyarados ha usado Cascada!"
+"No es muy eficaz..."
+
+[End of round 3]
+"Sigue nevando."
+
+===== Round 4 =====
+
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Karateka Jeff te desafía!"
+"¡Karateka Jeff saca a Keiridol!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+===== Round 1 =====
+
+[AI] Keiridol (1) is considering using Roca Veloz against Keiridol (0)...
+     +  8: damaging move (predicted damage 12 = 35% of target's HP)
+[AI] Keiridol (1) is considering using Sorpresa against Keiridol (0)...
+     +  8: damaging move (predicted damage 12 = 35% of target's HP)
+[AI] Move choices for Keiridol (1):
+   *  50.0% to use Roca Veloz (target 0): score 108
+   *  50.0% to use Sorpresa (target 0): score 108
+   => will use Roca Veloz (target 0)
+
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+[Use move] Keiridol (0) used Mayimpresión
+"¡Keiridol ha usado Mayimpresión!"
+[HP change] El Keiridol rival lost 6 HP (95 -> 89)
+"No es muy eficaz..."
+"¡El Keiridol rival se protegió con su ilusión ígnea!"
+"¡Keiridol se ha quemado!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival ha usado Roca Veloz!"
+[HP change] Keiridol lost 12 HP (34 -> 22)
+
+[End of round 1]
+"Sigue nevando."
+[HP change] Keiridol lost 7 HP (22 -> 15)
+"¡El Keiridol se resiente de la quemadura!"
+
+===== Round 2 =====
+
+[AI] Venusaur (1) is considering using Roca Veloz against Keiridol (0)...
+     + 20: damaging move (predicted damage 12 = 80% of target's HP)
+[AI] Venusaur (1) is considering using Sorpresa...
+     - 80: move will fail
+[AI] Move choices for Venusaur (1):
+   * 100.0% to use Roca Veloz (target 0): score 120
+   *   0.0% to use Sorpresa: score 20
+   => will use Roca Veloz (target 0)
+
+[Round order] El Venusaur rival (1), Keiridol (0)
+
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival ha usado Roca Veloz!"
+[HP change] Keiridol lost 12 HP (15 -> 3)
+[Use move] Keiridol (0) used Hiperrayo
+"¡Keiridol ha usado Hiperrayo!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] Movimiento bloqueado detectado. Habilidad no activada.
+
+[End of round 2]
+"Sigue nevando."
+[HP change] Keiridol lost 3 HP (3 -> 0)
+"¡El Keiridol se resiente de la quemadura!"
+"¡Keiridol se debilitó!"
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Karateka Jeff te desafía!"
+"¡Karateka Jeff saca a Keiridol!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+===== Round 1 =====
+
+[AI] Keiridol (1) is considering using Roca Veloz against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 9% of target's HP)
+[AI] Keiridol (1) is considering using Sorpresa against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 9% of target's HP)
+[AI] Move choices for Keiridol (1):
+   *  50.0% to use Roca Veloz (target 0): score 102
+   *  50.0% to use Sorpresa (target 0): score 102
+   => will use Roca Veloz (target 0)
+
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+[Use move] Keiridol (0) used Sorpresa
+"¡Keiridol ha usado Sorpresa!"
+[HP change] El Keiridol rival lost 36 HP (95 -> 59)
+"El Venusaur rival's illusion burned Keiridol!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] Movimiento bloqueado detectado. Habilidad no activada.
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival se ha amedrentado y no puede lanzar ningún ataque!"
+[Move failed] El Venusaur rival flinched
+
+[End of round 1]
+"Sigue nevando."
+[HP change] Keiridol lost 7 HP (125 -> 118)
+"¡El Keiridol se resiente de la quemadura!"
+
+===== Round 2 =====
+
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Karateka Jeff te desafía!"
+"¡Karateka Jeff saca a Keiridol!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+===== Round 1 =====
+
+[AI] Keiridol (1) is considering using Roca Veloz against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 10% of target's HP)
+[AI] Keiridol (1) is considering using Sorpresa against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 10% of target's HP)
+[AI] Move choices for Keiridol (1):
+   *  50.0% to use Roca Veloz (target 0): score 102
+   *  50.0% to use Sorpresa (target 0): score 102
+   => will use Sorpresa (target 0)
+
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+[Use move] Keiridol (0) used Sorpresa
+"¡Keiridol ha usado Sorpresa!"
+[HP change] El Keiridol rival lost 19 HP (95 -> 76)
+[HP change] El Venusaur rival gained 19 HP (76 -> 95)
+"¡El Venusaur rival atacado todo el tiempo fue una ilusión!"
+"La ilusión de Keiridol ha quemado a Keiridol!"
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Venusaur rival (1) used Sorpresa
+"¡El Venusaur rival se ha amedrentado y no puede lanzar ningún ataque!"
+[Move failed] El Venusaur rival flinched
+
+[End of round 1]
+"Sigue nevando."
+[HP change] Keiridol lost 7 HP (111 -> 104)
+"¡El Keiridol se resiente de la quemadura!"
+
+===== Round 2 =====
+
+
+================================================================
+
+[Started battle] Single trainer battle (1 trainer(s) vs. 1 trainer(s))
+"¡Karateka Jeff te desafía!"
+"¡Karateka Jeff saca a Keiridol!"
+"¡Adelante, Keiridol!"
+"Sigue nevando."
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+===== Round 1 =====
+
+[AI] Keiridol (1) is considering using Roca Veloz against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 9% of target's HP)
+[AI] Keiridol (1) is considering using Sorpresa against Keiridol (0)...
+     +  2: damaging move (predicted damage 12 = 9% of target's HP)
+[AI] Move choices for Keiridol (1):
+   *  50.0% to use Roca Veloz (target 0): score 102
+   *  50.0% to use Sorpresa (target 0): score 102
+   => will use Roca Veloz (target 0)
+
+[Round order] Keiridol (0), el Keiridol rival (1)
+
+[Use move] Keiridol (0) used Sorpresa
+"¡Keiridol ha usado Sorpresa!"
+[HP change] El Keiridol rival lost 41 HP (95 -> 54)
+[HP change] El Venusaur rival gained 41 HP (54 -> 95)
+"¡El Venusaur rival atacado todo el tiempo fue una ilusión!"
+
+**Exception: undefined method `pbTrainer' for #<Battle>
+[Añadidos de Combate [VTMON]] [001] Habilidades.rb:446:in `block in <main>'
+006_Event_Handlers.rb:195:in `trigger'
+009_Battle_AbilityEffects.rb:226:in `triggerOnBeingHit'
+011_Battler_UseMoveTriggerEffects.rb:10:in `pbEffectsOnMakingHit'
+[v21.1 Hotfixes] Battle bug fixes.rb:149:in `pbEffectsOnMakingHit'
+[Deluxe Battle Kit] [004] Wild Boss Attributes.rb:236:in `pbEffectsOnMakingHit'
+[[MUI] Enhanced Pokemon UI] [002] Legacy Data.rb:149:in `pbEffectsOnMakingHit'
+008_Battler_UseMove.rb:686:in `block in pbProcessMoveHit'
+008_Battler_UseMove.rb:684:in `each'
+008_Battler_UseMove.rb:684:in `pbProcessMoveHit'
+008_Battler_UseMove.rb:409:in `block in pbUseMove'
+008_Battler_UseMove.rb:407:in `times'
+008_Battler_UseMove.rb:407:in `pbUseMove'
+[[DBK] Animated Pokémon System] [007] Substitute Doll.rb:82:in `pbUseMove'
+[Deluxe Battle Kit] [001] Animation Utilities.rb:314:in `block in pbProcessTurn'
+002_PBDebug.rb:6:in `logonerr'
+[Deluxe Battle Kit] [001] Animation Utilities.rb:314:in `pbProcessTurn'
+011_Battle_AttackPhase.rb:128:in `block (2 levels) in pbAttackPhaseMoves'
+011_Battle_AttackPhase.rb:124:in `each'
+011_Battle_AttackPhase.rb:124:in `block in pbAttackPhaseMoves'
+011_Battle_AttackPhase.rb:110:in `loop'
+011_Battle_AttackPhase.rb:110:in `pbAttackPhaseMoves'
+[Deluxe Battle Kit] [003] Command Menu Refactor.rb:411:in `pbAttackPhase'
+003_Battle_StartAndEnd.rb:339:in `block (2 levels) in pbBattleLoop'
+002_PBDebug.rb:6:in `logonerr'
+003_Battle_StartAndEnd.rb:339:in `block in pbBattleLoop'
+003_Battle_StartAndEnd.rb:324:in `loop'
+003_Battle_StartAndEnd.rb:324:in `pbBattleLoop'
+012_Fondos Terrenos.rb:102:in `pbStartBattleCore'
+003_Battle_StartAndEnd.rb:271:in `pbStartBattle'
+002_Overworld_BattleStarting.rb:521:in `block (2 levels) in start_core'
+003_Overworld_BattleIntroAnim.rb:55:in `pbSceneStandby'
+002_Overworld_BattleStarting.rb:521:in `block in start_core'
+003_Overworld_BattleIntroAnim.rb:126:in `pbBattleAnimation'
+002_Overworld_BattleStarting.rb:520:in `start_core'
+002_Overworld_BattleStarting.rb:486:in `start'
+003_Debug_MenuCommands.rb:376:in `block (2 levels) in load_scripts_from_folder'
+007_Event_HandlerCollections.rb:134:in `call'
+002_Debug_Menus.rb:138:in `block in pbDebugMenu'
+002_Debug_Menus.rb:100:in `loop'
+002_Debug_Menus.rb:100:in `pbDebugMenu'
+003_Scene_Map.rb:118:in `block in call_debug'
+003_MessageConfig.rb:589:in `pbFadeOutIn'
+003_Scene_Map.rb:118:in `call_debug'
+003_Scene_Map.rb:209:in `update'
+024_Barras entrenadores.rb:187:in `update'
+032_UnrealTime.rb:247:in `update'
+008_Debug Passability.rb:247:in `block in main'
+008_Debug Passability.rb:235:in `loop'
+008_Debug Passability.rb:235:in `main'
+999_Main.rb:39:in `mainFunctionDebug'
+999_Main.rb:22:in `block in mainFunction'
+004_Errors.rb:81:in `pbCriticalCode'
+999_Main.rb:22:in `mainFunction'
+999_Main.rb:49:in `block (2 levels) in load_scripts_from_folder'
+999_Main.rb:48:in `loop'
+999_Main.rb:48:in `block in load_scripts_from_folder'
+Section000:31:in `eval'
+Section000:31:in `block in load_scripts_from_folder'
+Section000:28:in `each'
+Section000:28:in `load_scripts_from_folder'
+Section000:41:in `block in load_scripts_from_folder'
+Section000:40:in `each'
+Section000:40:in `load_scripts_from_folder'
+Section000:45:in `<main>'
+-e:in `eval'
+
+
+[Use move] Keiridol (0) used Sorpresa
+"¡Keiridol ha usado Sorpresa!"
+[HP change] El Venusaur rival lost 38 HP (95 -> 57)
+[Great Encore] Iniciando efecto de la habilidad.
+[Great Encore] La habilidad no se activó por probabilidad.
+[Use move] El Venusaur rival (1) used Roca Veloz
+"¡El Venusaur rival se ha amedrentado y no puede lanzar ningún ataque!"
+[Move failed] El Venusaur rival flinched
+
+[End of round 1]
+"Sigue nevando."
+
+===== Round 2 =====
+

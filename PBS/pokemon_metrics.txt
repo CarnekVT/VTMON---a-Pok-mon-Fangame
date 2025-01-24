@@ -682,7 +682,7 @@ ShadowSprite = -1,-1,4
 #-------------------------------
 [TAUROS]
 BackSprite = -1,26
-FrontSprite = 6,11
+FrontSprite = 1,17
 ShadowSprite = 0,-7,-3
 #-------------------------------
 [MAGIKARP]
@@ -2479,8 +2479,8 @@ ShadowSprite = 0,-14,-2
 AnimationSpeed = 3
 #-------------------------------
 [TANGROWTH]
-BackSprite = 5,12
-FrontSprite = 2,19
+BackSprite = 5,41
+FrontSprite = 1,23
 ShadowSprite = -1,6,-1
 #-------------------------------
 [ELECTIVIRE]
@@ -2655,8 +2655,8 @@ ShadowSprite = 0,9,5
 AnimationSpeed = 1
 #-------------------------------
 [TEPIG]
-BackSprite = -1,3
-FrontSprite = 6,0
+BackSprite = -1,8
+FrontSprite = 6,6
 ShadowSprite = 0,5,4
 #-------------------------------
 [PIGNITE]
@@ -2818,9 +2818,9 @@ FrontSprite = 0,12
 ShadowSprite = 2,5,9
 #-------------------------------
 [SWOOBAT]
-BackSprite = 11,45
-FrontSprite = -4,4
-ShadowSprite = 4,3,19
+BackSprite = 11,22
+FrontSprite = -4,11
+ShadowSprite = 4,3,12
 #-------------------------------
 [DRILBUR]
 BackSprite = 2,17
@@ -3541,8 +3541,8 @@ ShadowSprite = 0,24,26
 #-------------------------------
 [TALONFLAME]
 BackSprite = 5,27
-FrontSprite = 2,6
-ShadowSprite = 0,19,21
+FrontSprite = 2,12
+ShadowSprite = 0,19,15
 #-------------------------------
 [SCATTERBUG]
 BackSprite = 5,6
@@ -3741,8 +3741,8 @@ ShadowSprite = 5,-2,8
 AnimationSpeed = 4
 #-------------------------------
 [SYLVEON]
-BackSprite = 5,35
-FrontSprite = 2,18
+BackSprite = 1,39
+FrontSprite = -1,24
 ShadowSprite = 0,-13,-5
 #-------------------------------
 [HAWLUCHA]
@@ -4216,8 +4216,8 @@ ShadowSprite = -1,13,9
 AnimationSpeed = 3,2
 #-------------------------------
 [TAPUBULU]
-BackSprite = -3,10
-FrontSprite = 16,-9
+BackSprite = -12,16
+FrontSprite = 9,-1
 ShadowSprite = 2,26,29
 #-------------------------------
 [TAPUFINI]
@@ -5486,3 +5486,8 @@ BackSprite = 0,0
 FrontSprite = 0,21
 ShadowSprite = 0,0,0
 AnimationSpeed = 1
+#-------------------------------
+[TANGROWTH,,female]
+BackSprite = 5,39
+FrontSprite = -2,24
+ShadowSprite = -1,6,-1

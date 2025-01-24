@@ -23,6 +23,7 @@ class Battle::DamageState
   attr_accessor :sturdy          # Sturdy ability used
   attr_accessor :disguise        # Disguise ability used
   attr_accessor :iceFace         # Ice Face ability used
+  attr_accessor :delusiveflame 
   attr_accessor :endured         # Damage was endured
   attr_accessor :affection_endured
   attr_accessor :berryWeakened   # Whether a type-resisting berry was used
@@ -55,6 +56,7 @@ class Battle::DamageState
     @focusSash          = false
     @sturdy             = false
     @disguise           = false
+    @delusiveflame      = false
     @iceFace            = false
     @endured            = false
     @affection_endured  = false

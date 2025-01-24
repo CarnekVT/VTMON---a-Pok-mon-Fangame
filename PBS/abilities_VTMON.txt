@@ -49,6 +49,10 @@ Description = El Pokémon tiene un 40% de atacar dos veces a pedido del público
 #-------------------------------
 # Kreti's Line Abilities
 #-------------------------------
+[DELUSIVEFLAME]
+Name =  Brasa Ilusoria
+Description = Adopta el aspecto del último Pokémon del equipo al entrar en combate. Puede quemar al objetivo y recupera todos sus PS cuando rompen la ilusión.
+#-------------------------------
 [SAGACITY]
 Name = Sagacidad
 Description = Al entrar en combate, la astucia del usuario intimida al rival de tal manera que su Ataque Especial disminuye un nivel.

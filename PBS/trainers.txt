@@ -45,7 +45,10 @@ Pokemon = MINCCINO,2
 [BLACKBELT,Jeff]
 LoseText = ...
 Pokemon = VENUSAUR,30
-    Moves = ACCELEROCK,FAKEOUT
+    Moves = FORESIGHT
+    Ability = DELUSIVEFLAME
+Pokemon = KEIRIDOL,30
+    Moves = AQUATAIL
 #-------------------------------
 [BUGCATCHER,paco]
 LoseText = ...

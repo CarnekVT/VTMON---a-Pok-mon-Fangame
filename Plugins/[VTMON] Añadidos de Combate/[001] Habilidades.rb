@@ -389,7 +389,9 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
 
 module PBEffects
   GreatEncoreTriggered = 1000 # Un número suficientemente alto para evitar conflictos
-  TypeChangeBlocked = 10001
+  DelusiveFlameTriggered = 1001
+  DelusiveFlameUsed = 1002
+  IllusionDamage = 1003
 end
 
 class Battle
@@ -415,4 +417,60 @@ Battle::AbilityEffects::OnSwitchIn.add(:SAGACITY, proc { |ability, battler, batt
   end
   battle.pbHideAbilitySplash(battler)
 })
+
+# Habilidad: Brasa Ilusoria
+#===============================================================================
+# Activa la ilusión visual y aplica los efectos adicionales.
+#===============================================================================
+Battle::AbilityEffects::OnSwitchIn.add(:DELUSIVEFLAME,
+  proc { |ability, battler, battle|
+    idx_last_party = battle.pbLastInTeam(battler.index)
+    last_pokemon = (idx_last_party >= 0) ? battle.pbParty(battler.index)[idx_last_party] : nil
+
+    # Activar ilusión si hay un Pokémon válido para copiar
+    if last_pokemon && last_pokemon != battler.pokemon && last_pokemon.able?
+      battler.effects[PBEffects::Illusion] = last_pokemon
+      battle.scene.pbChangePokemon(battler, last_pokemon)
+      battle.pbDisplay(_INTL("¡{1} asumió la apariencia de {2}!", battler.pbThis, last_pokemon.name))
+    end
+  }
+)
+
+#===============================================================================
+# Al recibir un ataque: desactivar ilusión, quemar al atacante y recuperar PS.
+#===============================================================================
+Battle::AbilityEffects::OnBeingHit.add(:DELUSIVEFLAME,
+  proc { |ability, user, target, move, battle|
+    # Verificar si la ilusión está activa
+    if target.effects[PBEffects::Illusion]
+      # Animación de la ilusión rota
+      target.effects[PBEffects::Illusion] = nil
+
+      # Actualizar el sprite al original inmediatamente
+      target.mosaicChange = true
+      battle.scene.pbAnimateSubstitute(target, :hide)  # Ocultar el sprite de sustituto
+      battle.scene.pbChangePokemon(target, target.pokemon)  # Actualizar el Pokémon con su forma real
+      battle.scene.pbAnimateSubstitute(target, :show, true)  # Mostrar el sprite del Pokémon original
+      battle.scene.pbRefreshOne(target.index)
+      target.pbUpdate(false)
+      # Mensaje de ruptura
+      battle.pbDisplay(_INTL("¡La ilusión de {1} fue rota!", target.pbThis))
+
+      # Quemar al atacante si el movimiento tiene contacto físico
+      # Verificar si el movimiento es de contacto (físico)
+      if move.pbContactMove?(user) && !user.burned?  # Si el movimiento es de contacto y el atacante no está quemado
+        # Quemar al atacante
+        msg = _INTL("La ilusión de {1} ha quemado a {2}!", target.pbThis, user.pbThis(true))  # Mensaje de quemadura
+        user.pbBurn(target, msg)  # Aplicar la quemadura
+      end
+
+      # Recuperar todos los PS del usuario
+      battle.pbCommonAnimation("DelusiveFlame", target) if battle.showAnims
+      hp_lost = target.totalhp - target.hp  # Cantidad de HP que perdió
+      target.pbRecoverHP(hp_lost)  # Recuperar la vida perdida sin 
+      battle.scene.pbRefreshOne(target.index)
+      battle.pbDisplay(_INTL("¡{1} absorbió la esencia de la ilusión rota!", target.pbThis))
+    end
+  }
+)
 
