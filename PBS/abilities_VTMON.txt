@@ -45,7 +45,21 @@ Description = El Pokémon tiene un 40% de atacar dos veces a pedido del público
 #-------------------------------
 # Uynuk's Line Abilities
 #-------------------------------
-
+[PAPERCUTTING]
+Name = Origami Letal
+Description = Hiere con su filoso y delgado cuerpo al rival que lo ataque con un movimiento de contacto, restándole 1/16 de sus PS máximos.
+#-------------------------------
+[PERFECTPLANE]
+Name = Plano Impecable
+Description = Aumenta su Evasión en un 20% debido a su cuerpo bidimensional.
+#-------------------------------
+[PERFECTFOLDING]
+Name = Defensa Plegable
+Description = Mitiga el daño que le infligen los movimientos supereficaces, reduciéndolos a 3/4 del daño inicial.
+#-------------------------------
+[CRAFTEDENDURE]
+Name = Fuerte Artesando
+Description = Evita que el rival pueda debilitarlo de un solo golpe cuando tiene los PS al máximo.
 #-------------------------------
 # Kreti's Line Abilities
 #-------------------------------

@@ -44,10 +44,10 @@ class Battle::Scene
     case sideSize
     when 2
       ret[0] += [-48, 48, 32, -32][index]
-      ret[1] += [  0,  0, 16, -16][index]
+      ret[1] += [  0,  0, 0, 0][index]
     when 3
       ret[0] += [-80, 80,  0,  0, 80, -80][index]
-      ret[1] += [  0,  0,  8, -8, 16, -16][index]
+      ret[1] += [  0,  0, 0, 0, 0, 0][index]
     end
     return ret
   end

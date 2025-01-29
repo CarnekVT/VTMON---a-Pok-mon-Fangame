@@ -205,17 +205,7 @@ Battle::AbilityEffects::OnBattlerFainting.add(:BUGGEDAURA,
 )
 
 # Habilidad: Encriptado
-Battle::AbilityEffects::StatLossImmunityNonIgnorable.add(:ENCRYPTED,
-  proc { |ability, battler, stat, battle, show_messages|
-    if show_messages
-      battle.pbShowAbilitySplash(battler)
-      battle.pbDisplay(_INTL("¡{1} se protege de la reducción de estadísticas gracias a {2}!", 
-        battler.pbThis(true), battler.abilityName))
-      battle.pbHideAbilitySplash(battler)
-    end
-    next true
-  }
-)
+Battle::AbilityEffects::StatLossImmunityNonIgnorable.copy(:FULLMETALBODY, :ENCRYPTED)
 
 Battle::AbilityEffects::MoveBlocking.copy(:DAZZLING, :QUEENLYMAJESTY, :ENCRYPTED, :ARMORTAIL)
 
@@ -431,7 +421,6 @@ Battle::AbilityEffects::OnSwitchIn.add(:DELUSIVEFLAME,
     if last_pokemon && last_pokemon != battler.pokemon && last_pokemon.able?
       battler.effects[PBEffects::Illusion] = last_pokemon
       battle.scene.pbChangePokemon(battler, last_pokemon)
-      battle.pbDisplay(_INTL("¡{1} asumió la apariencia de {2}!", battler.pbThis, last_pokemon.name))
     end
   }
 )
@@ -474,3 +463,16 @@ Battle::AbilityEffects::OnBeingHit.add(:DELUSIVEFLAME,
   }
 )
 
+# Origami Letal
+Battle::AbilityEffects::OnBeingHit.copy(:IRONBARBS, :ROUGHSKIN, :PAPERCUTTING)
+
+# Plano Impecable
+Battle::AbilityEffects::AccuracyCalcFromTarget.add(:PERFECTPLANE,
+  proc { |ability, mods, user, target, move, type|
+    # Reduce la precisión de los ataques hacia el objetivo con la habilidad Perfect Plane
+    mods[:accuracy_multiplier] *= 0.8
+  }
+)
+
+# Defensa Plegable
+Battle::AbilityEffects::DamageCalcFromTarget.copy(:FILTER, :SOLIDROCK, :PERFECTFOLDING)

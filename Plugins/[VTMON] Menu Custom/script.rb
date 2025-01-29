@@ -1,3 +1,5 @@
+FLY_MENU_OFF = 71
+
 #===============================================================================
 # Menu Custom (Menu Parrilla)
 # Script originalmente creado por: Polectron
@@ -133,52 +135,76 @@ class Menu2
   end
 
   def animateMenuClosure
+    return if @items.nil? || @items.empty? || @sprites.nil?  # Validación adicional para evitar problemas con @sprites
+  
+    # Animación de los items y el selector
     10.times do
       @items.each_with_index do |_, index|
-        @sprites["item_#{index}"].opacity -= 25 if @sprites["item_#{index}"] && @sprites["item_#{index}"].opacity > 0
+        sprite_key = "item_#{index}"
+        sprite = @sprites[sprite_key] if @sprites.key?(sprite_key)  # Verificar si la clave existe
+        next unless sprite  # Ignorar si el sprite no existe o es nil
+        sprite.opacity -= 25 if sprite.opacity > 0
       end
-      @sprites["selector"].opacity -= 25 if @sprites["selector"].opacity > 0
+  
+      if @sprites.key?("selector")
+        selector = @sprites["selector"]
+        selector.opacity -= 25 if selector && selector.opacity > 0
+      end
+  
       Graphics.update
     end
-
+  
+    # Animación de los paneles
     10.times do
-      @sprites["panel_blue"].y -= 10 if @sprites["panel_blue"] && @sprites["panel_blue"].y > -100
-      @sprites["panel_yellow"].x += 22 if @sprites["panel_yellow"].x < Graphics.width
+      if @sprites.key?("panel_blue")
+        panel_blue = @sprites["panel_blue"]
+        panel_blue.y -= 10 if panel_blue && panel_blue.y > -100
+      end
+  
+      if @sprites.key?("panel_yellow")
+        panel_yellow = @sprites["panel_yellow"]
+        panel_yellow.x += 22 if panel_yellow && panel_yellow.x < Graphics.width
+      end
+  
       Graphics.update
     end
   end
-
+  
   def pbEndScene
+    return if @items.empty?  # Evitar problemas si el menú no tiene items
+  
+    # Solo llamar a la animación si realmente se debe cerrar
     animateMenuClosure
     pbDisposeSpriteHash(@sprites)
     @viewport.dispose if @viewport
   end
+  
 
   def redrawSelector
     return if @items.empty?  # Evitar errores si @items está vacío
-
-    # Ajustar índice a límites válidos
-    @selected_item = [[@selected_item, 0].max, @items.length - 1].min
-
-    loop do
-      # Saltar ítems no seleccionables
-      break unless @items[@selected_item][3] == :non_selectable
-
-      if Input.trigger?(Input::RIGHT) || Input.trigger?(Input::DOWN)
-        @selected_item += 1
-      elsif Input.trigger?(Input::LEFT) || Input.trigger?(Input::UP)
-        @selected_item -= 1
-      end
-
-      # Ajustar índice a límites válidos de nuevo
+  
+    # Aseguramos que el selector sólo se mueva si el sprite está inicializado correctamente
+    if @sprites["selector"]
+      # Ajustar índice a límites válidos
       @selected_item = [[@selected_item, 0].max, @items.length - 1].min
+  
+      # Saltar ítems no seleccionables sin necesidad de loop infinito
+      while @items[@selected_item][3] != :selectable
+        # Aseguramos que no se salga de los límites
+        @selected_item += 1 if Input.trigger?(Input::RIGHT) || Input.trigger?(Input::DOWN)
+        @selected_item -= 1 if Input.trigger?(Input::LEFT) || Input.trigger?(Input::UP)
+  
+        # Evitar salirse de los límites de la lista
+        @selected_item = [@selected_item, 0].max
+        @selected_item = [@selected_item, @items.length - 1].min
+      end
+  
+      # Posicionar el selector
+      @sprites["selector"].x = @x_margin + ((@icon_width + @spacing_x) * (@selected_item % @n_icons))
+      @sprites["selector"].y = @y_margin + ((@icon_height + @spacing_y) * (@selected_item / @n_icons))
     end
-
-    # Colocar el selector en la posición del ítem seleccionado
-    @sprites["selector"].x = @x_margin + ((@icon_width + @spacing_x) * (@selected_item % @n_icons))
-    @sprites["selector"].y = @y_margin + ((@icon_height + @spacing_y) * (@selected_item / @n_icons))
-  end
-
+  end  
+  
   def addCmd(item)
     raise "Comando inválido: #{item}" unless item.is_a?(Array) && item.length >= 4
     @items.push(item).length - 1
@@ -253,20 +279,6 @@ def openOptions
   pbFadeOutIn { screen.pbStartScreen }
 end
 
-def openBag
-  # Luego abrir la mochila como en el menú de pausa
-  scene = PokemonBag_Scene.new
-  screen = PokemonBagScreen.new(scene, $bag)
-  item = nil 
-  pbFadeOutIn do
-    item = screen.pbStartScreen  # El ítem seleccionado en la mochila
-  end 
-  # Si un item es seleccionado, se usa como objeto clave
-  if item
-    Kernel.pbUseKeyItemInField(item)
-  end
-end
-
 def openParty
   if $player.party_count == 0
     pbMessage(_INTL("No tienes la Pokémon en el equipo."))
@@ -279,9 +291,41 @@ def openParty
     end
 
     if hidden_move
-      $game_temp.in_menu = false
+      pbEndScene
+      exitMenu  # Asegura que el menú no se quede abierto o invisible
+      $game_temp.menu_calling = false  # Evita futuras llamadas al menú
       pbUseHiddenMove(hidden_move[0], hidden_move[1])
+      pbEndScene if @sprites && @sprites.any?  # Asegurarse que no quede nada visible del menú
+      @sprites = nil
+      @viewport.dispose if @viewport
     end
+  end
+end
+
+def openBag
+  # Abre la mochila sin cerrar el menú
+  scene = PokemonBag_Scene.new
+  screen = PokemonBagScreen.new(scene, $bag)
+  item = nil
+  
+  pbFadeOutIn do
+    item = screen.pbStartScreen  # El ítem seleccionado en la mochila
+  end
+  
+  # Si un item es seleccionado, se usa como objeto clave
+  if item
+    # Aseguramos que el menú se cierre de inmediato antes de usar el item
+    pbEndScene
+    exitMenu  # Asegura que el menú no se quede abierto o invisible
+    $game_temp.menu_calling = false  # Evita futuras llamadas al menú
+    
+    # Usamos el item clave después de haber cerrado correctamente el menú
+    Kernel.pbUseKeyItemInField(item)
+    
+    # Limpieza final para asegurarnos de que no quede nada del menú
+    pbEndScene if @sprites && @sprites.any?  # Asegurarse que no quede nada visible del menú
+    @sprites = nil
+    @viewport.dispose if @viewport
   end
 end
 
@@ -315,12 +359,32 @@ def pbWildEncounter
   screen.pbStartScreen
 end
 
-def openFlyScreen
-  scene = PokemonRegionMap_Scene.new(-1, false)
-  screen = PokemonRegionMapScreen.new(scene)
-  ret = screen.pbStartFlyScreen
-  $game_temp.fly_destination = ret
-  pbFlyToNewLocation
+def openFlyScreen(fuera_de_menu = false)
+  pbFadeOutIn do
+    # Inicializamos la escena del mapa
+    scene = PokemonRegionMap_Scene.new(-1, false)
+    screen = PokemonRegionMapScreen.new(scene)
+    if fuera_de_menu
+      ret = screen.pbStartFlyScreen
+    else
+      ret = screen.pbStartScreen
+    end   
+    $game_temp.fly_destination = ret if ret
+    ($game_temp.fly_destination) ? exitMenu : return #menu.pbRefresh
+    # Si tenemos un destino, cerramos el menú y volamos
+    if $game_temp.fly_destination
+      pbEndScene
+      exitMenu  # Asegura que el menú no se quede abierto o invisible
+      $game_temp.menu_calling = false  # Evita futuras llamadas al menú
+      pbFlyToNewLocation  # Realiza la acción de vuelo
+    else
+      pbEndScene if @sprites && @sprites.any?
+      @sprites = nil
+      @viewport.dispose if @viewport
+      # Si no se seleccionó un destino, regresamos al menú de vuelo
+      return
+    end
+  end
 end
 
 def openPC

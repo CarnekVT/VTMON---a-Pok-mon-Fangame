@@ -257,14 +257,16 @@ ShadowSprite = 1,-4,4
 #-------------------------------
 [NYMBLE]
 BackSprite = 0,33
-FrontSprite = 0,8
-ShadowSprite = 0,-11,1
+FrontSprite = 0,27
+ShadowSprite = 3,-11,-8
+SuperShinyHue = -26
 #-------------------------------
 [LOKIX]
 BackSprite = 4,30
 FrontSprite = 5,4
 ShadowSprite = 1,-3,9
 AnimationSpeed = 3
+SuperShinyHue = -26
 #-------------------------------
 [PAWMI]
 BackSprite = 2,35

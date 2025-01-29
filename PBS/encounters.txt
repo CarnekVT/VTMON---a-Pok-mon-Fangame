@@ -2,30 +2,30 @@
 #-------------------------------
 [048] # Pueblo Jazmín
 LandMorning,10
-    20,LECHONK,2,3
+    20,HICHULLA,2,3
     20,ROOKIDEE,2,3
-    10,CACNEA,2,3
+    10,PAWMI,2,3
     10,CUBCHOO,2,3
     10,ROGGENROLA,2,3
     10,SCATTERBUG,2,3
     10,SUNKERN_1,2,3
-    8,PAWMI,2,3
+    8,CACNEA,2,3
     2,TAUROS_1,2,3
 LandDay,10
+    20,HICHULLA,2,3
     20,ROOKIDEE,2,3
-    20,WOOLOO,2,3
-    10,CACNEA,2,3
+    10,WOOLOO,2,3
     10,CUBCHOO,2,3
     10,ROGGENROLA,2,3
     10,SNOM,2,3
     10,SNOVER,2,3
-    8,PAWMI,2,3
+    8,CACNEA,2,3
     2,TAUROS_2,2,3
 LandNight,10
     20,CACNEA,2,3
     20,ROOKIDEE,2,3
     10,CUBCHOO,2,3
-    10,LECHONK,2,3
+    10,HICHULLA,2,3
     10,ROGGENROLA,2,3
     10,SNOVER,2,3
     10,WOOLOO,2,3

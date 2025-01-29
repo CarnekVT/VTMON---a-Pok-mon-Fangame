@@ -2797,7 +2797,7 @@ AnimationSpeed = 1
 #-------------------------------
 [ROGGENROLA]
 BackSprite = 3,2
-FrontSprite = 3,-1
+FrontSprite = 3,3
 ShadowSprite = 0,3,4
 AnimationSpeed = 1
 #-------------------------------
@@ -3969,9 +3969,9 @@ FrontSprite = 2,6
 ShadowSprite = 1,6,5
 #-------------------------------
 [CUTIEFLY]
-BackSprite = -6,21
-FrontSprite = 7,-8
-ShadowSprite = 0,20,30
+BackSprite = -6,27
+FrontSprite = 2,7
+ShadowSprite = 0,20,14
 #-------------------------------
 [RIBOMBEE]
 BackSprite = 3,20

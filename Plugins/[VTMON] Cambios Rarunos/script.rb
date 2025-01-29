@@ -30,24 +30,24 @@ def pbFlyToNewLocation(pkmn = nil, move = :FLY)
     return true
   end
 
-  def pbCanFly?(pkmn = nil, show_messages = false)
-    return true if $DEBUG
-    if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_FLY, show_messages)
-      return false
-    end
-    return false if !$DEBUG && !pkmn && !$player.get_pokemon_with_move(:FLY)
-    if !$game_player.can_map_transfer_with_follower?
-      if show_messages
-        pbMessage(_INTL("It can't be used when you have someone with you."))
-      end
-      return false
-    end
-    if !$game_map.metadata&.outdoor_map
-      pbMessage(_INTL("You can't use that here.")) if show_messages
-      return false
-    end
-    return true
+#===============================================================================
+# Fly
+#===============================================================================
+def pbCanFly?(pkmn = nil, show_messages = false)
+  #return false if !pbCheckHiddenMoveBadge(Settings::BADGE_FOR_FLY, show_messages)
+  #movefinder = Settings::USE_HM_WITHOUT_LEARNING_THEM ? $player.get_pokemon_can_learn_move(:FLY) : $player.get_pokemon_with_move(:FLY)
+  #return false if !$DEBUG && !pkmn && !movefinder
+  return false if !$game_switches[FLY_MENU_OFF]
+  if !$game_player.can_map_transfer_with_follower?
+    pbMessage(_INTL("No se puede usar cuando hay alguien contigo.")) if show_messages
+    return false
   end
+  if !$game_map.metadata&.outdoor_map
+    pbMessage(_INTL("No se puede usar aquí.")) if show_messages
+    return false
+  end
+  return true
+end
 
 # Nueva Caña
 ItemHandlers::UseInField.add(:SUPERROD, proc { |item| 

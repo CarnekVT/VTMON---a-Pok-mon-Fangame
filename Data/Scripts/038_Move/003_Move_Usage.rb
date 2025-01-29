@@ -207,7 +207,7 @@ class Battle::Move
         target.damageState.endured = true
         damage -= 1
       elsif damage == target.totalhp
-        if target.hasActiveAbility?(:STURDY) && !@battle.moldBreaker
+        if target.hasActiveAbility?(:STURDY) && !@battle.moldBreaker || target.hasActiveAbility?(:CRAFTEDENDURE) && !@battle.moldBreaker # Fuerte Artesano
           target.damageState.sturdy = true
           damage -= 1
         elsif target.hasActiveItem?(:FOCUSSASH) && target.hp == target.totalhp
