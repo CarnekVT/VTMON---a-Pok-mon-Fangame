@@ -2445,7 +2445,7 @@ ShadowSprite = 0,9,20
 #-------------------------------
 [SNOVER]
 BackSprite = 4,24
-FrontSprite = 2,12
+FrontSprite = 2,15
 ShadowSprite = 1,-7,0
 AnimationSpeed = 3
 SuperShinyHue = -122
@@ -4455,8 +4455,8 @@ ShadowSprite = 2,0,2
 #-------------------------------
 [WOOLOO]
 BackSprite = 6,11
-FrontSprite = 2,4
-ShadowSprite = 0,0,9
+FrontSprite = -2,10
+ShadowSprite = 8,0,8
 AnimationSpeed = 1,2
 #-------------------------------
 [DUBWOOL]
@@ -5483,8 +5483,8 @@ ShadowSprite = 0,0,0
 #-------------------------------
 [HICHULLA]
 BackSprite = 0,0
-FrontSprite = 0,21
-ShadowSprite = 0,0,0
+FrontSprite = 0,23
+ShadowSprite = 3,0,-4
 AnimationSpeed = 1
 #-------------------------------
 [TANGROWTH,,female]

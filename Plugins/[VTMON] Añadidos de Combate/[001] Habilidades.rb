@@ -379,9 +379,6 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
 
 module PBEffects
   GreatEncoreTriggered = 1000 # Un número suficientemente alto para evitar conflictos
-  DelusiveFlameTriggered = 1001
-  DelusiveFlameUsed = 1002
-  IllusionDamage = 1003
 end
 
 class Battle
