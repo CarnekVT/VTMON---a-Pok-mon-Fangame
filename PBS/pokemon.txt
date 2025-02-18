@@ -1196,8 +1196,8 @@ WildItemUncommon = ABSORBBULB
 #-------------------------------
 [PARAS]
 Name = Paras
-Types = BUG,GRASS
-BaseStats = 35,70,55,25,45,55
+Types = BUG
+BaseStats = 50,70,70,25,25,70
 GenderRatio = Female50Percent
 GrowthRate = Medium
 BaseExp = 57
@@ -1225,8 +1225,8 @@ Evolutions = PARASECT,Level,24
 #-------------------------------
 [PARASECT]
 Name = Parasect
-Types = BUG,GRASS
-BaseStats = 60,95,80,30,60,80
+Types = BUG,GHOST
+BaseStats = 90,115,100,30,30,100
 GenderRatio = Female50Percent
 GrowthRate = Medium
 BaseExp = 142

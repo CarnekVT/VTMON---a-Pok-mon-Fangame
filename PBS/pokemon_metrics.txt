@@ -244,13 +244,15 @@ AnimationSpeed = 1
 #-------------------------------
 [PARAS]
 BackSprite = 2,18
-FrontSprite = 2,9
-ShadowSprite = 0,-6,-2
+FrontSprite = -1,30
+ShadowSprite = 4,-6,-10
+SuperShinyHue = 25
 #-------------------------------
 [PARASECT]
 BackSprite = 11,19
-FrontSprite = 1,9
-ShadowSprite = 2,-9,-1
+FrontSprite = 1,17
+ShadowSprite = 7,-9,2
+SuperShinyHue = 25
 #-------------------------------
 [VENONAT]
 BackSprite = 2,5

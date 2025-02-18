@@ -259,6 +259,31 @@ Pokedex = Con el objetivo de retomar el "PROYECTO PORYGON", Byght fue creado con
 Generation = 11
 Evolutions = BINUGHT,Level,25,BINUGHT,HasMoveTurnForm1,BUGBITE
 #-------------------------------
+[BINUGHT]
+Name = Binught
+FormName = Forma Cifrada
+Types = NORMAL
+BaseStats = 75,115,65,112,55,65
+GenderRatio = Female50Percent
+GrowthRate = Medium
+BaseExp = 56
+EVs = ATTACK,1
+CatchRate = 190
+Happiness = 50
+Abilities = ENCRYPTED,ANTIVIRUS
+HiddenAbilities = STEADFAST
+Moves = 1,ANOMALOUSSTRIKE,1,LEER,4,GROWL,8,QUICKATTACK,12,REBOOT,16,BITE,20,FLAMECHARGE,24,HOWL,28,RETALIATE,32,CRUNCH,36,TIDYUP,40,DATAOVERCHARGE,44,FIREFANG,48,IRONTAIL
+TutorMoves = BUGBITE,ATTRACT,CAPTIVATE,CONFIDE,COVET,CRUNCH,DOUBLETEAM,EARTHPOWER,ECHOEDVOICE,ENDEAVOR,ENDURE,FACADE,FIREFANG,FRUSTRATION,HIDDENPOWER,HYPERVOICE,IRONDEFENSE,IRONHEAD,IRONTAIL,LASTRESORT,MIMIC,NATURALGIFT,PLAYROUGH,PROTECT,REST,RETURN,ROAR,ROCKSLIDE,ROCKTOMB,ROUND,SCARYFACE,SECRETPOWER,SLEEPTALK,SNARL,SNORE,SPIKES,STOMPINGTANTRUM,SUBSTITUTE,SWAGGER,SWORDSDANCE,TAUNT,THUNDERFANG,TOXIC,ZENHEADBUTT
+EggGroups = Field
+HatchSteps = 3840
+Height = 0.5
+Weight = 9.2
+Color = Blue
+Shape = Quadruped
+Category = Perro Cifrado
+Pokedex = Con el objetivo de retomar el "PROYECTO PORYGON", Byght fue creado con el fin de viajar por el ciberespacio con mayor efectividad.
+Generation = 11
+#-------------------------------
 [HICHULLA]
 Name = Hichulla
 Types = NORMAL
@@ -282,7 +307,7 @@ Color = Brown
 Shape = Quadruped
 Category = Curioso
 Pokedex = Siempre está alerta y no quita la mirada de su madriguera. Cuando no está vigilando, le invade la inquietud.
-Generation = 5
+Generation = 11
 Evolutions = KEIRIDOL,Level,20
 #-------------------------------
 [KEIRIDOL]
@@ -307,31 +332,6 @@ Color = Brown
 Shape = BipedalTail
 Category = Estrella Musical
 Pokedex = Hace brillar las rayas de su cuerpo para intimidar al enemigo. Sus ojos lo ven todo, hasta en la oscuridad.
-Generation = 5
-#-------------------------------
-[BINUGHT]
-Name = Binught
-FormName = Forma Cifrada
-Types = NORMAL
-BaseStats = 75,115,65,112,55,65
-GenderRatio = Female50Percent
-GrowthRate = Medium
-BaseExp = 56
-EVs = ATTACK,1
-CatchRate = 190
-Happiness = 50
-Abilities = ENCRYPTED,ANTIVIRUS
-HiddenAbilities = STEADFAST
-Moves = 1,ANOMALOUSSTRIKE,1,LEER,4,GROWL,8,QUICKATTACK,12,REBOOT,16,BITE,20,FLAMECHARGE,24,HOWL,28,RETALIATE,32,CRUNCH,36,TIDYUP,40,DATAOVERCHARGE,44,FIREFANG,48,IRONTAIL
-TutorMoves = BUGBITE,ATTRACT,CAPTIVATE,CONFIDE,COVET,CRUNCH,DOUBLETEAM,EARTHPOWER,ECHOEDVOICE,ENDEAVOR,ENDURE,FACADE,FIREFANG,FRUSTRATION,HIDDENPOWER,HYPERVOICE,IRONDEFENSE,IRONHEAD,IRONTAIL,LASTRESORT,MIMIC,NATURALGIFT,PLAYROUGH,PROTECT,REST,RETURN,ROAR,ROCKSLIDE,ROCKTOMB,ROUND,SCARYFACE,SECRETPOWER,SLEEPTALK,SNARL,SNORE,SPIKES,STOMPINGTANTRUM,SUBSTITUTE,SWAGGER,SWORDSDANCE,TAUNT,THUNDERFANG,TOXIC,ZENHEADBUTT
-EggGroups = Field
-HatchSteps = 3840
-Height = 0.5
-Weight = 9.2
-Color = Blue
-Shape = Quadruped
-Category = Perro Cifrado
-Pokedex = Con el objetivo de retomar el "PROYECTO PORYGON", Byght fue creado con el fin de viajar por el ciberespacio con mayor efectividad.
 Generation = 11
 #-------------------------------
 [MORTURNE]
@@ -383,6 +383,6 @@ Color = Blue
 Shape = Quadruped
 Category = Tosco
 Pokedex = No ve, por eso va haciendo placajes y dando mordiscos a diestro y siniestro. Su cuerpo está plagado de heridas.
-Generation = 5
+Generation = 11
 Evolutions = DRUDDIGON,Level,30
 #-------------------------------
