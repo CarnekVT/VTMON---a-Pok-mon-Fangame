@@ -325,7 +325,7 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
     end
 
     if move.function_code == "AttackAndSkipNextTurn" || move.function_code == "SwitchOutUserDamagingMove" || move.function_code == "FailsIfNotUserFirstTurn" ||
-      move.id == :FAKEOUT || move.id == :MAYIMPRESION
+      move.id == :FAKEOUT || move.id == :MAYIMPRESION || move.id == FIRSTIMPRESSION 
       PBDebug.log("[Great Encore] Movimiento bloqueado detectado. Habilidad no activada.")
       next
     end
@@ -378,7 +378,8 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
 )
 
 module PBEffects
-  GreatEncoreTriggered = 1000 # Un número suficientemente alto para evitar conflictos
+  GreatEncoreTriggered = 1000
+  CreativeSparkReady = 1001
 end
 
 class Battle
@@ -460,10 +461,10 @@ Battle::AbilityEffects::OnBeingHit.add(:DELUSIVEFLAME,
   }
 )
 
-# Origami Letal
+# Habilidad: Origami Letal
 Battle::AbilityEffects::OnBeingHit.copy(:IRONBARBS, :ROUGHSKIN, :PAPERCUTTING)
 
-# Plano Impecable
+# Habilidad: Plano Impecable
 Battle::AbilityEffects::AccuracyCalcFromTarget.add(:PERFECTPLANE,
   proc { |ability, mods, user, target, move, type|
     # Reduce la precisión de los ataques hacia el objetivo con la habilidad Perfect Plane
@@ -471,5 +472,40 @@ Battle::AbilityEffects::AccuracyCalcFromTarget.add(:PERFECTPLANE,
   }
 )
 
-# Defensa Plegable
+# Habilidad: Defensa Plegable
 Battle::AbilityEffects::DamageCalcFromTarget.copy(:FILTER, :SOLIDROCK, :PERFECTFOLDING)
+
+# Habilidad: Chispa Creativa
+Battle::AbilityEffects::OnEndOfUsingMove.add(:CREATIVESPARK,
+  proc { |ability, user, targets, move, battle|
+    targets = [targets] unless targets.is_a?(Array)
+    if targets.any? { |target| target.damageState.fainted }
+      user.effects ||= []
+      user.effects[PBEffects::CreativeSparkReady] = true
+      battle.pbShowAbilitySplash(user)
+      battle.pbDisplay(_INTL("¡{1} está tan motivado que su siguiente ataque será más potente!", user.pbThis))
+      battle.pbHideAbilitySplash(user)
+    end
+  }
+)
+
+Battle::AbilityEffects::DamageCalcFromUser.add(:CREATIVESPARK,
+  proc { |ability, user, target, move, mults, power, type|
+  if user.effects && user.effects[PBEffects::CreativeSparkReady] && (move.damagingMove?)
+      if user.pbHasType?(type)
+        # Ya tiene STAB, se le da una bonificación extra (1.2x)
+        mults[:final_damage_multiplier] *= 1.2
+        user.battle.pbShowAbilitySplash(user)
+        user.battle.pbDisplay(_INTL("¡{1} prepara un ataque devastador!", user.pbThis))
+        user.battle.pbHideAbilitySplash(user)
+      else
+        # No tiene STAB, se le aplica el multiplicador estándar (1.2x)
+        mults[:final_damage_multiplier] *= 1.2
+        user.battle.pbShowAbilitySplash(user)
+        user.battle.pbDisplay(_INTL("¡{1} reune energías para atacar con más fuerza!", user.pbThis))
+        user.battle.pbHideAbilitySplash(user)
+      end
+      user.effects[PBEffects::CreativeSparkReady] = false
+    end
+  }
+)

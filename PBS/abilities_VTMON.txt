@@ -1,4 +1,10 @@
 ﻿#-------------------------------
+# Sparnky's Line Abilities
+#-------------------------------
+[CREATIVESPARK]
+Name = Chispa Creativa
+Description = Tras debilitar a un Pokémon, el siguiente movimiento ofensivo inflige daño con STAB. Si ya tenía STAB, su potencia aumenta en un 20%.
+#-------------------------------
 # Byght's Line Abilities
 #-------------------------------
 [CORRUPTOR]
