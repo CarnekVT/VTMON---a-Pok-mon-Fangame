@@ -24,7 +24,7 @@ Pokemon = SHROODLE,12
     Moves = SCRATCH,BITE,ACIDSPRAY,COPYCAT
     Ability = PRANKSTER
     IV = 20,20,20,20,20,20
-Pokemon = VULPIX,14
+Pokemon = KRETI,14
     Name = Kreti
     Moves = EMBER,BITE,SCRATCH,COPYCAT
     AbilityIndex = 0
@@ -39,7 +39,7 @@ Pokemon = ROGGENROLA,3
 #-------------------------------
 [YOUNGSTER,Chavo]
 LoseText = ...
-Pokemon = MINCCINO,2
+Pokemon = HICHULLA,2
     Name = Hichulla
 #-------------------------------
 [BLACKBELT,Jeff]
@@ -57,3 +57,4 @@ Pokemon = ZAPDOS,50
     Ability = PROTEAN
 Pokemon = BULBASAUR,50
     Moves = REFLECTTYPE,CAMOUFLAGE,SUBSTITUTE,SOAK
+#-------------------------------
