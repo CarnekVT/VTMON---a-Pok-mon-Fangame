@@ -57,7 +57,7 @@ end
 #===============================================================================
 # Cures user of permanent status problems.
 # Reset user stat changes. (Reboot)
-#===============================================================================  # Arreglar
+#===============================================================================
 class Battle::Move::RebootUser < Battle::Move
   def pbEffectGeneral(user)
     # Variables para rastrear si se hizo algún cambio
