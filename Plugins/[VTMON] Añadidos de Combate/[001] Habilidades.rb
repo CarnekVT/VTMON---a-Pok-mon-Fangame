@@ -6,6 +6,12 @@ class HandlerHashSymbol
   end
 end
 
+module PBEffects
+  GreatEncoreTriggered = 1000
+  CreativeSparkReady = 1001
+  NormalizeChangedTypes = 1002
+end
+
 # Poder Solar sin Recoil
 Battle::AbilityEffects::EndOfRoundWeather.remove(:SOLARPOWER)
 
@@ -104,37 +110,95 @@ Battle::AbilityEffects::OnDealingHit.add(:ABYSSALROMP,
   end
 )
 
-# Normalidad Nuevo
+# Habilidad: Normalidad (Nueva Normalidad)
+#===============================================================================
+# Los Pokémon enemigos se vuelven de tipo Normal.
+# Al salir o debilitarse, los rivales recuperan sus tipos originales.
+#===============================================================================
 
-def eachBattler
-  if @battlers.is_a?(Array) && !@battlers.empty?
-    @battlers.each { |b| yield b if b && !b.fainted? }
-  else
-    puts "Error: @battlers no es una lista válida o está vacía."
-  end
-end
+# Eliminar efectos viejos
+Battle::AbilityEffects::ModifyMoveBaseType.remove(:NORMALIZE)
+Battle::AbilityEffects::DamageCalcFromUser.remove(:NORMALIZE)
 
-
+# Nuevo efecto
 Battle::AbilityEffects::OnSwitchIn.add(:NORMALIZE,
-  proc { |ability, battler, battle|
-    # Verificar si el Pokémon tiene la habilidad Normalidad
+  proc { |ability, battler, battle, switch_in|
     return unless battler.ability == :NORMALIZE
-    
     battle.pbShowAbilitySplash(battler)
-    battle.pbDisplay(_INTL("¡Todos los Pokémon en el campo se vuelven del tipo Normal debido a {1}!", battler.pbThis))
-
-    # Cambiar el tipo de todos los Pokémon en el campo a Normal
+    battle.pbDisplay(_INTL("¡{1} de {2} convierte al bando enemigo en tipo Normal!", battler.abilityName, battler.pbThis))
     battle.eachBattler do |b|
-      next if b == battler  # No cambiar el tipo del Pokémon que tiene Normalidad
-      b.instance_variable_set(:@original_types, b.types)  # Guardar los tipos originales
-      b.types = [:NORMAL]  # Cambiar los tipos de los demás Pokémon a Normal
+      next if b.fainted?
+      next unless battler.idxOwnSide != b.idxOwnSide
+      b.effects[PBEffects::NormalizeChangedTypes] = b.pbTypes.dup
+      b.pbChangeTypes(:NORMAL)
     end
+    battle.pbHideAbilitySplash(battler)
+  }
+)
 
+Battle::AbilityEffects::OnSwitchOut.add(:NORMALIZE,
+  proc { |ability, battler, endOfBattle = false|
+    battle = battler.battle
+    battle.pbShowAbilitySplash(battler)
+    battle.eachBattler do |b|
+      next if b.fainted?
+      next unless battler.idxOwnSide != b.idxOwnSide
+      orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+      if orig_types
+        if orig_types.is_a?(Array)
+          # Handle multiple types by directly setting @types
+          new_types = orig_types.map { |type| GameData::Type.get(type).id }
+          new_types.push(:NORMAL) if new_types.length == 0
+          b.types = new_types.clone
+          b.effects[PBEffects::ExtraType] = nil
+          b.effects[PBEffects::BurnUp] = false
+          b.effects[PBEffects::Roost] = false
+          b.effects[PBEffects::DoubleShock] = false
+        else
+          b.pbChangeTypes(orig_types)
+        end
+      end
+      b.effects[PBEffects::NormalizeChangedTypes] = nil
+    end
+    battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
+    battle.pbHideAbilitySplash(battler)
+  }
+)
+
+Battle::AbilityEffects::OnBattlerFainting.add(:NORMALIZE,
+  proc { |ability, battler, fainted, battle|
+    next if battler.index != fainted.index
+    battle.pbShowAbilitySplash(battler)
+    battle.eachBattler do |b|
+      next if b.fainted?
+      next unless battler.idxOwnSide != b.idxOwnSide
+      orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+      if orig_types
+        if orig_types.is_a?(Array)
+          # Handle multiple types by directly setting @types
+          new_types = orig_types.map { |type| GameData::Type.get(type).id }
+          new_types.push(:NORMAL) if new_types.length == 0
+          b.types = new_types.clone
+          b.effects[PBEffects::ExtraType] = nil
+          b.effects[PBEffects::BurnUp] = false
+          b.effects[PBEffects::Roost] = false
+          b.effects[PBEffects::DoubleShock] = false
+        else
+          b.pbChangeTypes(orig_types)
+        end
+      end
+      b.effects[PBEffects::NormalizeChangedTypes] = nil
+    end
+    battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
     battle.pbHideAbilitySplash(battler)
   }
 )
 
 # Habilidad: Parche
+#===============================================================================
+# El Pokémon tiene un 30% de recuperarse de un problema de estado. 
+# En caso de no padecer un problema de estado, subirá ambas defensas en un nivel.
+#===============================================================================
 Battle::AbilityEffects::EndOfRoundHealing.add(:PATCH,
   proc { |ability, battler, battle|
     if battler.status != :NONE
@@ -173,43 +237,61 @@ Battle::AbilityEffects::EndOfRoundHealing.add(:PATCH,
 )
 
 # Habilidad: Zona Corrupta
+#===============================================================================
+# Neutralizing Gass
+#===============================================================================
 Battle::AbilityEffects::OnSwitchIn.add(:BUGGEDAURA,
   proc { |ability, battler, battle, switch_in|
     battle.pbShowAbilitySplash(battler, true)
+    battle.pbHideAbilitySplash(battler)
     battle.pbDisplay(_INTL("¡Un aura corrupta se propaga por toda la zona!"))
     battle.allBattlers.each do |b|
-      next if b.hasActiveItem?(:ABILITYSHIELD)
-      b.effects[PBEffects::GastroAcid] = true
+      if b.hasActiveItem?(:ABILITYSHIELD)
+        itemname = GameData::Item.get(target.item).name
+        @battle.pbDisplay(_INTL("La habilidad de {1} está protegida por los efectos de su {2}!",b.pbThis,itemname))
+        next
+      end
+      # Slow Start - end all turn counts
+      b.effects[PBEffects::SlowStart] = 0
+      # Truant - let b move on its first turn after Neutralizing Gas disappears
+      b.effects[PBEffects::Truant] = false
+      # Gorilla Tactics - end choice lock
+      if !b.hasActiveItem?([:CHOICEBAND, :CHOICESPECS, :CHOICESCARF])
+        b.effects[PBEffects::ChoiceBand] = nil
+      end
+      # Illusion - end illusions
+      if b.effects[PBEffects::Illusion]
+        b.effects[PBEffects::Illusion] = nil
+        if !b.effects[PBEffects::Transform]
+          battle.scene.pbChangePokemon(b, b.pokemon)
+          battle.pbDisplay(_INTL("¡{2} de {1} se ha inestabilizado!", b.pbThis, b.abilityName))
+          battle.pbSetSeen(b)
+        end
+      end
     end
-    battle.pbHideAbilitySplash(battler)
-  }
-)
-
-Battle::AbilityEffects::OnSwitchOut.add(:BUGGEDAURA,
-  proc { |ability, battler, battle|
-    battle.pbShowAbilitySplash(battler)
-    battle.pbDisplay(_INTL("¡Las habilidades de los Pokémon en el campo han sido restauradas!"))
-    battle.eachBattler { |b| b.effects[PBEffects::GastroAcid] = false }
-    battle.pbHideAbilitySplash(battler)
-  }
-)
-
-Battle::AbilityEffects::OnBattlerFainting.add(:BUGGEDAURA,
-  proc { |ability, battler, fainted, battle|
-    next if battler.index != fainted.index
-    battle.pbShowAbilitySplash(battler)
-    battle.pbDisplay(_INTL("¡Las habilidades de los Pokémon en el campo han sido restauradas!"))
-    battle.eachBattler { |b| b.effects[PBEffects::GastroAcid] = false }
-    battle.pbHideAbilitySplash(battler)
+    # Trigger items upon Unnerve being negated
+    battler.ability_id = nil   # Allows checking if Unnerve was active before
+    had_unnerve = battle.pbCheckGlobalAbility([:UNNERVE, :ASONECHILLINGNEIGH, :ASONEGRIMNEIGH])
+    battler.ability_id = :BUGGEDAURA
+    if had_unnerve && !battle.pbCheckGlobalAbility([:UNNERVE, :ASONECHILLINGNEIGH, :ASONEGRIMNEIGH])
+      battle.allBattlers.each { |b| b.pbItemsOnUnnerveEnding }
+    end
   }
 )
 
 # Habilidad: Encriptado
+#===============================================================================
+# Cuerpo Puro + Regia Presencia
+#===============================================================================
 Battle::AbilityEffects::StatLossImmunityNonIgnorable.copy(:FULLMETALBODY, :ENCRYPTED)
 
 Battle::AbilityEffects::MoveBlocking.copy(:DAZZLING, :QUEENLYMAJESTY, :ENCRYPTED, :ARMORTAIL)
 
 # Habilidad: Antivirus
+#===============================================================================
+# El Pokémon resiste en un 10% los ataques dirigidos a el. Si es atacado 
+# con un ataque supereficaz, su Velocidad sube dos niveles.
+#===============================================================================
 Battle::AbilityEffects::DamageCalcFromTarget.add(:ANTIVIRUS,
   proc { |ability, user, target, move, mults, power, type|
     mults[:final_damage_multiplier] *= 0.9
@@ -227,6 +309,10 @@ Battle::AbilityEffects::OnBeingHit.add(:ANTIVIRUS,
 )
 
 # Habilidad: Inspiración Divina
+#===============================================================================
+# Al entrar en combate, motiva a sus aliados aumentando 
+# su Ataque Especial y Defensa Especial en un nivel.
+#===============================================================================
 Battle::AbilityEffects::OnSwitchIn.add(:DIVINEINSPIRATION,
   proc { |ability, battler, battle, switch_in|
     # Mostrar animación global de la habilidad
@@ -254,6 +340,10 @@ Battle::AbilityEffects::OnSwitchIn.add(:DIVINEINSPIRATION,
 )
 
 # Habilidad: Canto Milagroso
+#===============================================================================
+# Al usar movimientos tipo Hada o basados en sonido, 
+# el usuario y su aliado recuperan un 10% de sus PS.
+#===============================================================================
 Battle::AbilityEffects::OnDealingHit.add(:MIRACULOUSSONG, proc { |ability, user, target, move, battle|
   # Verificar si el movimiento es de tipo Hada o tiene la propiedad 'soundMove'
   if move.type == :FAIRY || move.soundMove?
@@ -298,6 +388,9 @@ Battle::AbilityEffects::OnDealingHit.add(:MIRACULOUSSONG, proc { |ability, user,
 })
 
 # Habilidad: Gran Encore
+#===============================================================================
+# 40% de atacar dos veces
+#===============================================================================
 Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
   proc { |ability, user, targets, move, battle|
     PBDebug.log("[Great Encore] Iniciando efecto de la habilidad.")
@@ -376,11 +469,6 @@ Battle::AbilityEffects::OnEndOfUsingMove.add(:GREATENCORE,
     user.effects[PBEffects::GreatEncoreTriggered] = false
   }
 )
-
-module PBEffects
-  GreatEncoreTriggered = 1000
-  CreativeSparkReady = 1001
-end
 
 class Battle
   alias great_encore_end_of_turn pbEndOfRoundPhase
@@ -462,9 +550,15 @@ Battle::AbilityEffects::OnBeingHit.add(:DELUSIVEFLAME,
 )
 
 # Habilidad: Origami Letal
+#===============================================================================
+# Piel Tosca con otro nombre
+#===============================================================================
 Battle::AbilityEffects::OnBeingHit.copy(:IRONBARBS, :ROUGHSKIN, :PAPERCUTTING)
 
 # Habilidad: Plano Impecable
+#===============================================================================
+# Aumenta su Evasión en un 20%
+#===============================================================================
 Battle::AbilityEffects::AccuracyCalcFromTarget.add(:PERFECTPLANE,
   proc { |ability, mods, user, target, move, type|
     # Reduce la precisión de los ataques hacia el objetivo con la habilidad Perfect Plane
@@ -473,9 +567,16 @@ Battle::AbilityEffects::AccuracyCalcFromTarget.add(:PERFECTPLANE,
 )
 
 # Habilidad: Defensa Plegable
+#===============================================================================
+# Filtro con otro nombre
+#===============================================================================
 Battle::AbilityEffects::DamageCalcFromTarget.copy(:FILTER, :SOLIDROCK, :PERFECTFOLDING)
 
 # Habilidad: Chispa Creativa
+#===============================================================================
+# Tras debilitar a un Pokémon, el siguiente movimiento ofensivo 
+# inflige daño con STAB. Si el movimiento ya tenía STAB, su potencia aumenta en un 20%.
+#===============================================================================
 Battle::AbilityEffects::OnEndOfUsingMove.add(:CREATIVESPARK,
   proc { |ability, user, targets, move, battle|
     targets = [targets] unless targets.is_a?(Array)
