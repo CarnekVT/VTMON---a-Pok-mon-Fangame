@@ -124,73 +124,131 @@ Battle::AbilityEffects::DamageCalcFromUser.remove(:NORMALIZE)
 Battle::AbilityEffects::OnSwitchIn.add(:NORMALIZE,
   proc { |ability, battler, battle, switch_in|
     return unless battler.ability == :NORMALIZE
-    battle.pbShowAbilitySplash(battler)
-    battle.pbDisplay(_INTL("¡{1} de {2} convierte al bando enemigo en tipo Normal!", battler.abilityName, battler.pbThis))
-    battle.eachBattler do |b|
-      next if b.fainted?
-      next unless battler.idxOwnSide != b.idxOwnSide
-      b.effects[PBEffects::NormalizeChangedTypes] = b.pbTypes.dup
-      b.pbChangeTypes(:NORMAL)
+    begin
+      battle.pbShowAbilitySplash(battler)
+      battle.pbDisplay(_INTL("¡{1} de {2} convierte al bando enemigo en tipo Normal!", battler.abilityName, battler.pbThis))
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        b.effects[PBEffects::NormalizeChangedTypes] = b.pbTypes.dup
+        b.pbChangeTypes(:NORMAL)
+      end
+      battle.pbHideAbilitySplash(battler)
+    rescue
+      # If there's an error showing the splash, continue with the logic anyway
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        b.effects[PBEffects::NormalizeChangedTypes] = b.pbTypes.dup
+        b.pbChangeTypes(:NORMAL)
+      end
     end
-    battle.pbHideAbilitySplash(battler)
   }
 )
 
 Battle::AbilityEffects::OnSwitchOut.add(:NORMALIZE,
   proc { |ability, battler, endOfBattle = false|
     battle = battler.battle
-    battle.pbShowAbilitySplash(battler)
-    battle.eachBattler do |b|
-      next if b.fainted?
-      next unless battler.idxOwnSide != b.idxOwnSide
-      orig_types = b.effects[PBEffects::NormalizeChangedTypes]
-      if orig_types
-        if orig_types.is_a?(Array)
-          # Handle multiple types by directly setting @types
-          new_types = orig_types.map { |type| GameData::Type.get(type).id }
-          new_types.push(:NORMAL) if new_types.length == 0
-          b.types = new_types.clone
-          b.effects[PBEffects::ExtraType] = nil
-          b.effects[PBEffects::BurnUp] = false
-          b.effects[PBEffects::Roost] = false
-          b.effects[PBEffects::DoubleShock] = false
-        else
-          b.pbChangeTypes(orig_types)
+    begin
+      battle.pbShowAbilitySplash(battler)
+      battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+        if orig_types
+          if orig_types.is_a?(Array)
+            # Handle multiple types by directly setting @types
+            new_types = orig_types.map { |type| GameData::Type.get(type).id }
+            new_types.push(:NORMAL) if new_types.length == 0
+            b.types = new_types.clone
+            b.effects[PBEffects::ExtraType] = nil
+            b.effects[PBEffects::BurnUp] = false
+            b.effects[PBEffects::Roost] = false
+            b.effects[PBEffects::DoubleShock] = false
+          else
+            b.pbChangeTypes(orig_types)
+          end
         end
+        b.effects[PBEffects::NormalizeChangedTypes] = nil
       end
-      b.effects[PBEffects::NormalizeChangedTypes] = nil
+      battle.pbHideAbilitySplash(battler)
+    rescue
+      # If there's an error showing the splash, continue with the logic anyway
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+        if orig_types
+          if orig_types.is_a?(Array)
+            # Handle multiple types by directly setting @types
+            new_types = orig_types.map { |type| GameData::Type.get(type).id }
+            new_types.push(:NORMAL) if new_types.length == 0
+            b.types = new_types.clone
+            b.effects[PBEffects::ExtraType] = nil
+            b.effects[PBEffects::BurnUp] = false
+            b.effects[PBEffects::Roost] = false
+            b.effects[PBEffects::DoubleShock] = false
+          else
+            b.pbChangeTypes(orig_types)
+          end
+        end
+        b.effects[PBEffects::NormalizeChangedTypes] = nil
+      end
     end
-    battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
-    battle.pbHideAbilitySplash(battler)
   }
 )
 
 Battle::AbilityEffects::OnBattlerFainting.add(:NORMALIZE,
   proc { |ability, battler, fainted, battle|
     next if battler.index != fainted.index
-    battle.pbShowAbilitySplash(battler)
-    battle.eachBattler do |b|
-      next if b.fainted?
-      next unless battler.idxOwnSide != b.idxOwnSide
-      orig_types = b.effects[PBEffects::NormalizeChangedTypes]
-      if orig_types
-        if orig_types.is_a?(Array)
-          # Handle multiple types by directly setting @types
-          new_types = orig_types.map { |type| GameData::Type.get(type).id }
-          new_types.push(:NORMAL) if new_types.length == 0
-          b.types = new_types.clone
-          b.effects[PBEffects::ExtraType] = nil
-          b.effects[PBEffects::BurnUp] = false
-          b.effects[PBEffects::Roost] = false
-          b.effects[PBEffects::DoubleShock] = false
-        else
-          b.pbChangeTypes(orig_types)
+    begin
+      battle.pbShowAbilitySplash(battler)
+      battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+        if orig_types
+          if orig_types.is_a?(Array)
+            # Handle multiple types by directly setting @types
+            new_types = orig_types.map { |type| GameData::Type.get(type).id }
+            new_types.push(:NORMAL) if new_types.length == 0
+            b.types = new_types.clone
+            b.effects[PBEffects::ExtraType] = nil
+            b.effects[PBEffects::BurnUp] = false
+            b.effects[PBEffects::Roost] = false
+            b.effects[PBEffects::DoubleShock] = false
+          else
+            b.pbChangeTypes(orig_types)
+          end
         end
+        b.effects[PBEffects::NormalizeChangedTypes] = nil
       end
-      b.effects[PBEffects::NormalizeChangedTypes] = nil
+      battle.pbHideAbilitySplash(battler)
+    rescue
+      # If there's an error showing the splash, continue with the logic anyway
+      battle.eachBattler do |b|
+        next if b.fainted?
+        next unless battler.idxOwnSide != b.idxOwnSide
+        orig_types = b.effects[PBEffects::NormalizeChangedTypes]
+        if orig_types
+          if orig_types.is_a?(Array)
+            # Handle multiple types by directly setting @types
+            new_types = orig_types.map { |type| GameData::Type.get(type).id }
+            new_types.push(:NORMAL) if new_types.length == 0
+            b.types = new_types.clone
+            b.effects[PBEffects::ExtraType] = nil
+            b.effects[PBEffects::BurnUp] = false
+            b.effects[PBEffects::Roost] = false
+            b.effects[PBEffects::DoubleShock] = false
+          else
+            b.pbChangeTypes(orig_types)
+          end
+        end
+        b.effects[PBEffects::NormalizeChangedTypes] = nil
+      end
     end
-    battle.pbDisplay(_INTL("¡El bando enemigo recupera sus tipos originales!"))
-    battle.pbHideAbilitySplash(battler)
   }
 )
 

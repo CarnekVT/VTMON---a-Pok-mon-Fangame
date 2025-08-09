@@ -3,6 +3,7 @@
 [KEIRAME,Keirame]
 Items = POTION,POTION
 LoseText = ...
+LoseText_F = ...
 Pokemon = POPPLIO,12
     Form = 0
     Moves = WATERGUN,ROUND,DISARMINGVOICE,ICYWIND
@@ -19,6 +20,7 @@ Pokemon = HICHULLA,14
 [KREX,Krex]
 Items = POTION,POTION
 LoseText = ...
+LoseText_F = ...
 Pokemon = SHROODLE,12
     Form = 0
     Moves = SCRATCH,BITE,ACIDSPRAY,COPYCAT
@@ -35,15 +37,18 @@ Pokemon = KRETI,14
 #-------------------------------
 [HIKER,Jaime]
 LoseText = ...
+LoseText_F = ...
 Pokemon = ROGGENROLA,3
 #-------------------------------
 [YOUNGSTER,Chavo]
 LoseText = ...
+LoseText_F = ...
 Pokemon = HICHULLA,2
     Name = Hichulla
 #-------------------------------
 [BLACKBELT,Jeff]
 LoseText = ...
+LoseText_F = ...
 Pokemon = VENUSAUR,30
     Moves = FORESIGHT
     Ability = DELUSIVEFLAME
@@ -52,9 +57,18 @@ Pokemon = KEIRIDOL,30
 #-------------------------------
 [BUGCATCHER,paco]
 LoseText = ...
+LoseText_F = ...
 Pokemon = ZAPDOS,50
     Moves = SHEDTAIL,DOUBLESHOCK,FORESTSCURSE,ROOST
     Ability = PROTEAN
 Pokemon = BULBASAUR,50
     Moves = REFLECTTYPE,CAMOUFLAGE,SUBSTITUTE,SOAK
 #-------------------------------
+[KREX,Krex,1]
+LoseText = ...
+LoseText_F = ¡Rayos, me pudiste vencer!
+Pokemon = KRETSUNE,30
+    Moves = INCINERATE,WILLOWISP,DISARMINGVOICE,CONFUSERAY
+    Ability = DELUSIVEFLAME
+Pokemon = VIVILLON,30
+	Moves = SLEEPPOWDER,BUGBITE,GUST,STRINGSHOT

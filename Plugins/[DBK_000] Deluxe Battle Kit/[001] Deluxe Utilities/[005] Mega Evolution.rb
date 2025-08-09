@@ -85,7 +85,7 @@ class Battle
     pbDeluxeTriggers(idxBattler, nil, "BeforeMegaEvolution", battler.species, *battler.pokemon.types)
     @scene.pbAnimateSubstitute(idxBattler, :hide)
     old_ability = battler.ability_id
-    if battler.hasActiveAbility?(:ILLUSION)
+    if battler.hasActiveAbility?(:ILLUSION) || battler.hasActiveAbility?(:DELUSIVEFLAME)
       Battle::AbilityEffects.triggerOnBeingHit(battler.ability, nil, battler, nil, self)
     end
     if battler.wild?

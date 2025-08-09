@@ -982,7 +982,7 @@ MidbattleHandlers.add(:midbattle_triggers, "battlerSpecies",
     end
     battle.scene.pbAnimateSubstitute(idxBattler, :hide)
     old_ability = battler.ability_id
-    if battler.hasActiveAbility?(:ILLUSION)
+    if battler.hasActiveAbility?(:ILLUSION) || battler.hasActiveAbility?(:DELUSIVEFLAME)
       Battle::AbilityEffects.triggerOnBeingHit(battler.ability, nil, battler, nil, battle)
     end
     battler.pokemon.species = try_species.species
@@ -1055,7 +1055,7 @@ MidbattleHandlers.add(:midbattle_triggers, "battlerAbility",
     battle.pbShowAbilitySplash(battler, true, false) if msg
     oldAbil = battler.ability
     break_illusion = false
-    if battler.hasActiveAbility?(:ILLUSION)
+    if battler.hasActiveAbility?(:ILLUSION) || hasActiveAbility?(:DELUSIVEFLAME)
       battle.scene.pbAnimateSubstitute(idxBattler, :hide)
       Battle::AbilityEffects.triggerOnBeingHit(battler.ability, nil, battler, nil, battle)
       break_illusion = true

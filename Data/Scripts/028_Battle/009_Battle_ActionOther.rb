@@ -138,7 +138,7 @@ class Battle
     trainerName = pbGetOwnerName(idxBattler)
     old_ability = battler.ability_id
     # Break Illusion
-    if battler.hasActiveAbility?(:ILLUSION)
+    if battler.hasActiveAbility?(:ILLUSION) || battler.hasActiveAbility?(:DELUSIVEFLAME)
       Battle::AbilityEffects.triggerOnBeingHit(battler.ability, nil, battler, nil, self)
     end
     # Mega Evolve

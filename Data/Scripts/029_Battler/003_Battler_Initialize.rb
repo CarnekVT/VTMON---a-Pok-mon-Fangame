@@ -185,7 +185,7 @@ class Battle::Battler
     @effects[PBEffects::HelpingHand]         = false
     @effects[PBEffects::HyperBeam]           = 0
     @effects[PBEffects::Illusion]            = nil
-    if hasActiveAbility?(:ILLUSION)
+    if hasActiveAbility?(:ILLUSION) || hasActiveAbility?(:DELUSIVEFLAME)
       idxLastParty = @battle.pbLastInTeam(@index)
       if idxLastParty >= 0 && idxLastParty != @pokemonIndex
         @effects[PBEffects::Illusion]        = @battle.pbParty(@index)[idxLastParty]

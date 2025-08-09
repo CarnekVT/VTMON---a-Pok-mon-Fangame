@@ -247,7 +247,7 @@ class Battle::Battler
     return false if @effects[PBEffects::SkyDrop] >= 0 || semiInvulnerable?
     @battle.scene.pbAnimateSubstitute(@index, :hide)
     old_ability = @ability_id
-    if hasActiveAbility?(:ILLUSION)
+    if hasActiveAbility?(:ILLUSION) || hasActiveAbility?(:DELUSIVEFLAME)
       Battle::AbilityEffects.triggerOnBeingHit(@ability, nil, self, nil, @battle)
     end
     pos = Audio.bgm_pos rescue 0
@@ -281,7 +281,7 @@ class Battle::Battler
     return if fainted? || @effects[PBEffects::Transform] || @form == newForm
     @battle.scene.pbAnimateSubstitute(self, :hide)
     old_ability = @ability_id
-    if hasActiveAbility?(:ILLUSION)
+    if hasActiveAbility?(:ILLUSION) || hasActiveAbility?(:DELUSIVEFLAME)
       Battle::AbilityEffects.triggerOnBeingHit(@ability, nil, self, nil, @battle)
     end
     oldForm = @form

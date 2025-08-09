@@ -411,5 +411,4 @@ VictoryBGM = Battle victory leader
 Name = Líder de Gimnasio
 Gender = Male
 BaseMoney = 100
-BattleBGM = Battle Líder de Gimnasio
 VictoryBGM = Battle victory leader

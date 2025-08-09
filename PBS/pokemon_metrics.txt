@@ -5493,3 +5493,14 @@ AnimationSpeed = 1
 BackSprite = 5,39
 FrontSprite = -2,24
 ShadowSprite = -1,6,-1
+#-------------------------------
+[KRETSUNE]
+BackSprite = 0,60
+FrontSprite = 0,25
+ShadowSprite = 7,0,-6
+SuperShinyHue = 34
+#-------------------------------
+[KRETI]
+BackSprite = 0,0
+FrontSprite = 0,0
+ShadowSprite = 0,0,0

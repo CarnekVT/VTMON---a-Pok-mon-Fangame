@@ -360,10 +360,10 @@ Category = Zorro
 Pokedex = Puede controlar el fuego a su antojo y libera llamas por la boca. Tiene seis colas cuya temperatura sube de forma radical justo antes de evolucionar.
 Generation = 11
 WildItemUncommon = CHARCOAL
-Evolutions = NINETALES,Item,FIRESTONE
+Evolutions = KRETSUNE,Level,25
 #-------------------------------
 [KRETSUNE]
-Name = Kretusne
+Name = Kretsune
 Types = FIRE, FAIRY
 BaseStats = 73,76,75,100,81,100
 GenderRatio = Female75Percent

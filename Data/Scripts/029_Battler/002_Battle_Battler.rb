@@ -421,6 +421,7 @@ class Battle::Battler
       # Appearance-changing abilities
       :ILLUSION,
       :IMPOSTER,
+      :DELUSIVEFLAME,
       # Abilities intended to be inherent properties of a certain species
       :ASONECHILLINGNEIGH,
       :ASONEGRIMNEIGH,
